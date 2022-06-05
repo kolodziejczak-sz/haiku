@@ -1,0 +1,36 @@
+---
+import { getLangFromContext } from '@/features/i18n/getLangFromContext';
+import { useTranslation } from '@/features/i18n/useTranslation';
+import { getProps } from '@/features/utils/getProps';
+import '@/styles/index.scss';
+
+export interface Props {
+  title?: string;
+};
+
+const t = useTranslation(Astro);
+
+const { title } = getProps<Props>(Astro);
+const defaultPageTitle = t('pageTitle');
+
+const pageTitle = [title, defaultPageTitle]
+  .filter(Boolean)
+  .join(' | ');
+
+const pageLang = getLangFromContext(Astro);
+
+---
+
+<html lang={pageLang}>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>{pageTitle}</title>
+</head>
+
+<body>
+  <slot />
+</body>
+
+</html>

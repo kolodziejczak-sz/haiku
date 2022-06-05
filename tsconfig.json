@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "paths": {
+      "@/*": ["./src/*"],
+    },
+    "target": "ESNext",
+    "types": ["vite/client"],
+    "resolveJsonModule": true
+  },
+  "include": ["./src"]
+}

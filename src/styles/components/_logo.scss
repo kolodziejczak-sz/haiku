@@ -1,0 +1,32 @@
+.logo {
+  letter-spacing: .1rem;
+
+  &__icon {
+    bottom: 0.1rem;
+    display: inline-grid;
+    place-items: center;
+    position: relative;
+
+    &::before, &::after {
+      content: '';
+      display: inline-block;
+      position: relative;
+    }
+
+    &::before {
+      background-color: var(--bg-purple-600);
+      border-radius: 50%;
+      height: 1.15rem;
+      width: 1.25rem;
+    }
+
+    &::after {
+      background-color: currentColor;
+      bottom: -0.1rem;
+      height: .1rem;
+      width: .75rem;
+      right: -0.1rem;
+      box-shadow: .15rem .25rem 0 0 currentColor;
+    }
+  }
+}

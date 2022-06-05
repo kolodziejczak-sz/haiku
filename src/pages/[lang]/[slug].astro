@@ -1,0 +1,28 @@
+---
+import { supportedLanguagesArray } from '@/features/i18n/supportedLanguages';
+import { getSlugForFile } from '@/features/router/getSlugForFile';
+import { universalPages } from '@/features/router/pages';
+
+export const getStaticPaths = async () => {
+  const staticPaths = [];
+  const pages = Object.values(universalPages);
+
+  for (const page of pages) {
+    const slug = getSlugForFile(page.file);
+
+    const module = await page.default();
+    const Component = module.default;
+
+    supportedLanguagesArray.forEach(lang => {
+      staticPaths.push({ params: { lang, slug }, props: { Component } })
+    });
+  }
+
+  return staticPaths;
+}
+
+const { Component } = Astro.props;
+
+---
+
+<Component />
