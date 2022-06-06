@@ -11,7 +11,7 @@ export interface Props {
 const t = useTranslation(Astro);
 
 const { title } = getProps<Props>(Astro);
-const defaultPageTitle = t('pageTitle');
+const defaultPageTitle = t('projectName');
 
 const pageTitle = [title, defaultPageTitle]
   .filter(Boolean)
@@ -26,7 +26,9 @@ const pageLang = getLangFromContext(Astro);
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
+  <meta name="color-scheme" content="dark light" />
   <title>{pageTitle}</title>
+  <link rel="shortcut icon" href="/logo.svg" type="image/svg+xml">
 </head>
 
 <body>

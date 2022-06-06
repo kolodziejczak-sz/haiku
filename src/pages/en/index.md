@@ -1,6 +1,6 @@
 ---
 layout: '@/layouts/BaseLayout.astro'
-className: container
+class: container
 ---
 
 # Home

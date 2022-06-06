@@ -1,0 +1,15 @@
+---
+import { getProps } from '@/features/utils/getProps';
+  
+export interface Props {
+  callback: (html: string) => Promise<string> | string;
+}
+
+const { callback } = getProps<Props>(Astro);
+
+const content = await Astro.slots.render('default');
+const html = await callback(content);
+
+---
+
+<>{html ? <Fragment set:html={html} /> : <slot />}</>

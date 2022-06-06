@@ -1,30 +1,33 @@
 ---
 import { useTranslation } from '@/features/i18n/useTranslation';
+import Icon from '@/components/Icon.astro';
 import Link from '@/components/Link.astro';
+import Logo from '@/components/Logo.astro';
 
 const t = useTranslation(Astro);
 
 ---
 <header class="header container">
   <nav class="header__nav nav">
+    <Icon name="mdi:account" />
     <Link
       to='/'
-      className="nav__logo logo"
-      title="t.Header.home"
+      class="nav__logo logo"
     >
-      {t('pageTitle')}
-      <span class="logo__icon" aria-hidden="true"></span>
+      <Logo />
+      <span>{t('projectName')}</span>
+      <span class="sr-only">{t('Header.home')}</span>
     </Link>
-  
+    
     <ul class="nav__list">
       <li class="nav__item">
-        <Link to="/entries" className="nav__link">{t('Header.entries')}</Link>
+        <Link to="/entries" class="nav__link">{t('Header.entries')}</Link>
       </li>
       <li class="nav__item">
-        <Link to="/intro" className="nav__link">{t('Header.intro')}</Link>
+        <Link to="/intro" class="nav__link">{t('Header.intro')}</Link>
       </li>
       <li class="nav__item">
-        <Link to="/about-me" className="nav__link">{t('Header.aboutMe')}</Link>
+        <Link to="/about-me" class="nav__link">{t('Header.aboutMe')}</Link>
       </li>
     </ul>
   </nav>

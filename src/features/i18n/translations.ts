@@ -5,16 +5,16 @@ import {
   supportedLanguagesArray,
 } from '@/features/i18n/supportedLanguages';
 
-const messageJsonFiles = import.meta.globEager('/**/messages.json');
+const messageFiles = import.meta.globEager('/**/messages.(ts|json)');
 
-export const messages = Object.values(messageJsonFiles).reduce(
+export const translations = Object.values(messageFiles).reduce(
   (acc, { default: values }) => merge(acc, values),
   {}
 );
 
 const verifyTranslations = () => {
   supportedLanguagesArray.forEach((lang) => {
-    const subject = messages[lang];
+    const subject = translations[lang];
 
     if (!subject) {
       console.error(`Please provide translations for ${lang} language`);
@@ -25,7 +25,7 @@ const verifyTranslations = () => {
       return;
     }
 
-    const model = messages[defaultLanguage];
+    const model = translations[defaultLanguage];
     const [missingValues] = keysDiff(model, subject);
 
     if (missingValues.length) {

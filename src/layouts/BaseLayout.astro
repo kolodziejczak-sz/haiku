@@ -4,11 +4,11 @@ import RawLayout from '@/layouts/RawLayout.astro';
 import Header from '@/components/Header.astro'
 
 export interface Props {
-  className?: string;
+  class?: string;
   title?: string;
 };
 
-const { title, className } = getProps<Props>(Astro);
+const { title, class: className } = getProps<Props>(Astro);
 
 ---
 <RawLayout title={title}>

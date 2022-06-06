@@ -1,7 +1,7 @@
 ---
 layout: '@/layouts/BaseLayout.astro'
 title: 'O mnie'
-className: container
+class: container
 ---
 
 # O mnie

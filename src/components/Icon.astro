@@ -1,0 +1,24 @@
+---
+import { Icon } from 'astro-icon'
+import { getProps } from '@/features/utils/getProps';
+import RenderMiddleware from '@/components/RenderMiddleware.astro';
+
+export interface Props {
+  name: string;
+  class?: string;
+  [key: string]: string;
+}
+
+const { name, class: className, ...restProps } = getProps<Props>(Astro);
+const [collection, icon] = name.split(':');
+const svgClassName = ['icon', className].filter(Boolean).join(" ");
+
+const clearSvgIcon = (html: string) => html
+  .replace(/ astro-icon="[^\"]*"/, '')
+  .replace(/ fill="currentColor"/g, '');
+
+---
+<RenderMiddleware callback={clearSvgIcon}>
+  <Icon {...restProps} name={icon} pack={collection} class={svgClassName} />
+</RenderMiddleware>
+

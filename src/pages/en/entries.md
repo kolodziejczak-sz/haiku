@@ -1,7 +1,7 @@
 ---
 layout: '@/layouts/BaseLayout.astro'
 title: 'Entries'
-className: container
+class: container
 ---
 
 # Entries

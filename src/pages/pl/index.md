@@ -1,7 +1,7 @@
 ---
 layout: '@/layouts/BaseLayout.astro'
 title: 'Strona Główna'
-className: container
+class: container
 ---
 
 # Strona Główna

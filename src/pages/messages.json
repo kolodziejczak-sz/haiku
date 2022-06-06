@@ -1,28 +1,20 @@
 {
   "en": {
-    "pageTitle": "Project Haiku",
+    "projectName": "Project Haiku",
     "Header": {
       "aboutMe": "About me",
       "entries": "Entries",
       "home": "Home",
       "intro": "Intro"
-    },
-    "404": {
-      "notFound": "Not Found",
-      "takeMeHome": "Back to the homepage"
     }
   },
   "pl": {
-    "pageTitle": "Projekt Haiku",
+    "projectName": "Projekt Haiku",
     "Header": {
       "aboutMe": "O mnie",
       "entries": "Wpisy",
       "home": "Strona główna",
       "intro": "Wprowadzenie"
-    },
-    "404": {
-      "notFound": "Nie znaleziono",
-      "takeMeHome": "Wróc na stronę główną"
     }
   }
 }

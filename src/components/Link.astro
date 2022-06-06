@@ -1,17 +1,16 @@
 ---
-import { createLink } from '@/features/router/createLink';
+import { useLink } from '@/features/router/useLink';
 import { getProps } from '@/features/utils/getProps';
 
 export interface Props {
-  className?: string;
-  title?: string;
   to: string;
+  [key: string]: any;
 }
 
-const { className, to, title } = getProps<Props>(Astro);
-const url = await createLink(to, Astro);
+const { to, children, ...restProps } = getProps<Props>(Astro);
+const url = useLink(Astro)(to);
 
 ---
-<a class={className} href={url} title={title}>
+<a {...restProps} href={url}>
   <slot />
 </a>

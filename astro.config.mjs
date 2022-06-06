@@ -1,5 +1,9 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  server: {}
+  vite: {
+    ssr: {
+      external: ['svgo']
+    }
+  }
 });
