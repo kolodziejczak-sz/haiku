@@ -1,6 +1,6 @@
 .container {
   margin-inline: auto;
-  width: min(100% - 6rem, 1200px);
+  width: min(100% - var(--space-2xl), 1200px);
 }
 
 .sr-only {
@@ -13,6 +13,10 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+.mb-l {
+  margin-block-end: var(--space-l);
 }
 
 .image {

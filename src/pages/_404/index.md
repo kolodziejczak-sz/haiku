@@ -1,10 +1,12 @@
 ---
 layout: '@/layouts/BaseLayout.astro'
 class: 'container'
-title: 't.404.title'
+title: 't.404.notFound'
 setup: |
-  import Message from '@/components/Message.astro'
-  import Link from '@/components/Link.astro'
+  import { setupMd } from '@/features/utils/setupMd';
+  const { t, Message, Link } = setupMd(Astro);
 
 ---
-<Message key="t.404.content"/>
+# {t`404.notFound`}
+
+<Link to='/'>{t`404.takeMeHome`}</Link>

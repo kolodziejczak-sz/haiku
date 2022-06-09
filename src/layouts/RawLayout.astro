@@ -11,7 +11,7 @@ export interface Props {
 const t = useTranslation(Astro);
 
 const { title } = getProps<Props>(Astro);
-const defaultPageTitle = t('projectName');
+const defaultPageTitle = t`projectName`;
 
 const pageTitle = [title, defaultPageTitle]
   .filter(Boolean)

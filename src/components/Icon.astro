@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon'
+import clsx from 'clsx';
 import { getProps } from '@/features/utils/getProps';
 import RenderMiddleware from '@/components/RenderMiddleware.astro';
 
@@ -11,7 +12,7 @@ export interface Props {
 
 const { name, class: className, ...restProps } = getProps<Props>(Astro);
 const [collection, icon] = name.split(':');
-const svgClassName = ['icon', className].filter(Boolean).join(" ");
+const svgClassName = clsx(['icon', className]);
 
 const clearSvgIcon = (html: string) => html
   .replace(/ astro-icon="[^\"]*"/, '')

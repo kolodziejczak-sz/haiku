@@ -1,0 +1,14 @@
+{
+  "en": {
+    "404": {
+      "notFound": "Page not found",
+      "takeMeHome": "Back to the homepage"
+    }
+  },
+  "pl": {
+    "404": {
+      "notFound": "Nie znaleziono strony",
+      "takeMeHome": "Wróć na stronę główną"
+    }
+  }
+}

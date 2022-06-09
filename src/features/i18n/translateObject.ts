@@ -9,7 +9,9 @@ export const translateObject = <T = Record<string, any>>(
 
   return Object.entries(object).reduce<T>((acc, [key, value]) => {
     if (typeof value === 'string' && value.startsWith('t.')) {
-      acc[key] = t(value.slice(2));
+      const translatePath = value.slice(2);
+
+      acc[key] = t(translatePath);
     }
 
     return acc;

@@ -1,7 +1,7 @@
 ---
 import { getProps } from '@/features/utils/getProps';
 import RawLayout from '@/layouts/RawLayout.astro';
-import Header from '@/components/Header.astro'
+import PrimaryNav from '@/components/PrimaryNav.astro'
 
 export interface Props {
   class?: string;
@@ -12,7 +12,7 @@ const { title, class: className } = getProps<Props>(Astro);
 
 ---
 <RawLayout title={title}>
-  <Header />
+  <PrimaryNav className="container mb-l" />
   <main class={className}>
     <slot />
   </main>

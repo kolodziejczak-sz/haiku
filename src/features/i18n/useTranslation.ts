@@ -6,15 +6,11 @@ import { translations } from '@/features/i18n/translations';
 export const useTranslation = (context: AstroGlobal) => {
   const lang = getLangFromContext(context);
 
-  return (path: string) => {
+  return (path: string | TemplateStringsArray) => {
     const fullPath = `${lang}.${path}`;
     const message = get(translations, fullPath);
 
-    if (!message) {
-      throw new Error(`Missing translations for ${fullPath}`);
-    }
-
-    return message;
+    return message || path;
   }
 }
 
