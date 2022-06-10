@@ -55,13 +55,14 @@ const navList = [
 </nav>
 
 <script>
+  const desktopMenuMediaQuery = window.matchMedia('(min-width: 50em)')
   const navToggle = document.querySelector('[data-js="nav-toggle"]');
   const navList = document.querySelector('[data-js="nav-list"]');
   const firstLink = navList.querySelector('a');
 
   navToggle.onclick = () => {
     const expandedAttr = 'aria-expanded';
-    const isExpanded = navToggle.getAttribute(expandedAttr) === "true";
+    const isExpanded = navToggle.getAttribute(expandedAttr) === 'true';
     const shouldOpen = !isExpanded;
 
     navToggle.setAttribute(expandedAttr, String(shouldOpen))
@@ -75,12 +76,15 @@ const navList = [
     
     signal.addEventListener('abort', ({ target: { reason }}) => {
       navToggle.setAttribute(expandedAttr, 'false');
-
       if (reason === 'esc') {
         navToggle.focus();
       }
     }, { once: true });
-  
+
+    desktopMenuMediaQuery.addEventListener('change', () => {
+      abortController.abort('mediaQuery');
+    }, { once: true, signal })
+
     navList.addEventListener('focusout', ({ relatedTarget }) => {
       if (!navList.contains(relatedTarget)) {
         abortController.abort('focusout');
