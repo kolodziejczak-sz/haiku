@@ -23,6 +23,10 @@ const navList = [
 
 ---
 <nav class={clsx(className, 'nav')}>
+  <Link to="#main-content" class="nav__skip nav__link">
+    {t`PrimaryNav.skipToMainContent`}
+  </Link>
+
   <Link to='/' class="nav__link">
     <span aria-hidden="true">{t`projectName`}</span>
     <img class="nav__logo" src="/logo.svg" alt={t`PrimaryNav.logoDescription`} />

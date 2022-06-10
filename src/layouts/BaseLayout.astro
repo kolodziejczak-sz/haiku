@@ -12,8 +12,8 @@ const { title, class: className } = getProps<Props>(Astro);
 
 ---
 <RawLayout title={title}>
-  <PrimaryNav className="container mb-l" />
-  <main class={className}>
+  <PrimaryNav className="container" />
+  <main id="main-content" class={className}>
     <slot />
   </main>
 </RawLayout>

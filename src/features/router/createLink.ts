@@ -5,7 +5,8 @@ import { error } from '@/features/utils/error';
 
 export const createLink = (url: string, context: AstroGlobal) => {
   const isExternal = url.startsWith('http');
-  if (isExternal) {
+  const isHash = url.startsWith('#');
+  if (isExternal || isHash) {
     return url;
   }
 

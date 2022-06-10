@@ -1,20 +1,24 @@
 {
   "en": {
+    "content": "Content",
     "projectName": "Project Haiku",
     "PrimaryNav": {
       "aboutMe": "About me",
       "home": "Home",
       "intro": "Intro",
       "logoDescription": "The site logo: the sun behind a mountain",
+      "skipToMainContent": "Skip to main content",
       "toggleMenu": "Toggle primary menu"
     }
   },
   "pl": {
+    "content": "Treść",
     "projectName": "Projekt Haiku",
     "PrimaryNav": {
       "aboutMe": "O mnie",
       "home": "Strona główna",
       "intro": "Wprowadzenie",
+      "skipToMainContent": "Przejdź do głównej treści",
       "logoDescription": "Logo strony: słońce za górą",
       "toggleMenu": "Przełącz główne menu"
     }
