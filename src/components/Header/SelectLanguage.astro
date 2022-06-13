@@ -1,0 +1,52 @@
+---
+import clsx from 'clsx';
+import { getLangFromContext } from '@/features/i18n/getLangFromContext';
+import { supportedLanguages } from '@/features/i18n/supportedLanguages';
+import { useTranslation } from '@/features/i18n/useTranslation';
+import { getProps } from '@/features/utils/getProps';
+import Icon from '@/components/Icon.astro';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className } = getProps<Props>(Astro);
+const t = useTranslation(Astro);
+const currentLang = getLangFromContext(Astro);
+
+---
+
+<div class={clsx(className, 'select-language hoverable')}>
+  <Icon name="jam:language" class="select-language__icon" aria-hidden="true" />
+  <select
+    aria-label={t`Components.selectLanguage`}
+    class="select-language__input"
+    data-js="select-language"
+  >
+    {Object.entries(supportedLanguages).map(([key, name]) => {
+      const isSelected = currentLang === key;
+      
+      return (
+        <option
+          class="select-language__option"
+          value={key}
+          selected={isSelected}
+        >
+          {name}
+        </option>
+      );
+    })}
+  </select>
+</div>
+
+<script>
+  const selectLanguageEl = document.querySelector('[data-js="select-language"]');
+
+  selectLanguageEl.addEventListener('change', ({ target: { value: nextLang }}) => {
+    const location = window.location;
+    const [_leadingSlash, _oldLang, ...rest] = location.pathname.split('/');
+    const slug = rest.join('/').slice(0, -1);
+
+    location.pathname = `/${nextLang}/${slug}`;
+  });
+</script>

@@ -10,6 +10,10 @@ export interface Props {
   [key: string]: string;
 }
 
+/**
+ * Icon Sets
+ * https://icon-sets.iconify.design/
+ */
 const { name, class: className, ...restProps } = getProps<Props>(Astro);
 const [collection, icon] = name.split(':');
 const svgClassName = clsx(['icon', className]);

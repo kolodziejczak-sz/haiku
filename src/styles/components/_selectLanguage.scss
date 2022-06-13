@@ -1,0 +1,28 @@
+.select-language {
+  align-items: center;
+  border: 0;
+  display: grid;
+  grid-auto-flow: column;
+}
+
+.select-language__icon,
+.select-language__input {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.select-language__icon {
+  height: 1em;
+}
+
+.select-language__input {
+  background-color: inherit;
+  border: 0;
+  padding-inline-start: var(--space-s);
+}
+
+.select-language__option {
+  background-color: var(--bg-400);
+}
+
+

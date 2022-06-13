@@ -2,25 +2,29 @@
   "en": {
     "content": "Content",
     "projectName": "Project Haiku",
-    "PrimaryNav": {
+    "Components": {
       "aboutMe": "About me",
       "home": "Home",
       "intro": "Intro",
       "logoDescription": "The site logo: the sun behind a mountain",
       "skipToMainContent": "Skip to main content",
-      "toggleMenu": "Toggle primary menu"
+      "selectLanguage": "Select language",
+      "menu": "Menu",
+      "main": "Main"
     }
   },
   "pl": {
     "content": "Treść",
     "projectName": "Projekt Haiku",
-    "PrimaryNav": {
+    "Components": {
       "aboutMe": "O mnie",
       "home": "Strona główna",
       "intro": "Wprowadzenie",
       "skipToMainContent": "Przejdź do głównej treści",
+      "selectLanguage": "Wybierz język",
       "logoDescription": "Logo strony: słońce za górą",
-      "toggleMenu": "Przełącz główne menu"
+      "menu": "Menu",
+      "main": "Główne"
     }
   }
 }

@@ -1,0 +1,36 @@
+---
+import clsx from 'clsx';
+import { useTranslation } from '@/features/i18n/useTranslation';
+import { getSlugFromContext } from '@/features/router/getSlugFromContext';
+import { getProps } from '@/features/utils/getProps';
+import Link from '@/components/Link.astro';
+
+export interface Props {
+  class?: string;
+}
+
+const t = useTranslation(Astro);
+const { class: className } = getProps(Astro);
+const slug = getSlugFromContext(Astro);
+
+const navList = [
+  { to: '/', text: t`Components.home` },
+  { to: '/intro', text: t`Components.intro` },
+  { to: '/about-me', text: t`Components.aboutMe` },
+];
+---
+
+<nav aria-label={t`Components.main`} class={clsx(className, 'nav')}>
+  <ul class="nav__list">
+    {navList.map(({ to, text }) => {
+      const isActive = to.slice(1) === slug;
+      const className = clsx(
+        'header__link', 'hoverable', { 'header__link--active': isActive }
+      );
+
+      return (
+        <li><Link class={className} to={to}>{text}</Link></li>
+      );
+    })}
+  </ul>
+</nav>  
