@@ -1,0 +1,11 @@
+@mixin desktop {
+  @media (min-width: 50em) {
+    @content;
+  }
+}
+
+@mixin darkMode {
+  @media(prefers-color-scheme: dark) {
+    @content;
+  }
+}

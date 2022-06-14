@@ -1,12 +1,19 @@
 body {
+  --accent-color: var(--text-purple-600);
   --bg-color: var(--bg-200);
+  --text-color: var(--text-900);
 
-  accent-color: var(--text-purple-600);
-  color-scheme: light dark;
+  --bg-header-color: var(--bg-color);
+  --text-header-color: var(--text-600);
+
+  accent-color: var(--accent-color);
   background-color: var(--bg-color);
-  color: var(--text-900);
+  color-scheme: light dark;
+  color: var(--text-color);
+  display: grid;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
   font-size: var(--fs-0);
+  grid-auto-rows: minmax(min-content, max-content);
 }
 
 main {
@@ -18,11 +25,22 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
-*:focus-visible {
-  outline: 2px solid var(--text-purple-600);
-}
-
 button {
   background: transparent;
   border: 0;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--accent-color);
+}
+
+.hoverable {
+  color: var(--text-600);
+  cursor: pointer;
+}
+
+.hoverable:hover,
+.hoverable:focus,
+.hoverable:focus-within {
+  color: var(--text-900);
 }

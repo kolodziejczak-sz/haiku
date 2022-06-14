@@ -1,0 +1,21 @@
+---
+import clsx from 'clsx';
+import { useTranslation } from '@/features/i18n/useTranslation';
+import { getProps } from '@/features/utils/getProps';
+
+const { class: className } = getProps(Astro);
+const t = useTranslation(Astro);
+
+---
+<svg
+  aria-label={t`Components.logoDescription`}
+  class={clsx(className, 'logo')}
+  viewBox="0 0 26.6 18.5"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <circle class="logo__sun" cx="20" cy="6.8" r="6.6"/>
+  <g class="logo__alp">
+    <path d="m 8.8,5.77 c 0,0 -2.3,1.6 -5.5,5.8 -2.4,3.2 -2.64,6.7 -2.64,6.7"/>
+    <path d="M 26.3,17.7 C 5.2,17.6 11.8,5.5 8.52,5.88"/>
+  </g>
+</svg>

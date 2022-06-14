@@ -2,9 +2,10 @@
 import clsx from 'clsx';
 import { useTranslation } from '@/features/i18n/useTranslation';
 import { getProps } from '@/features/utils/getProps';
-import SelectLanguage from '@/components/Header/SelectLanguage.astro';
-import Nav from '@/components/Header/Nav.astro';
 import Link from '@/components/Link.astro';
+import Logo from '@/components/Header/Logo.astro';
+import Nav from '@/components/Header/Nav.astro';
+import SelectLanguage from '@/components/Header/SelectLanguage.astro';
 
 export interface Props {
   class?: string;
@@ -21,7 +22,7 @@ const { class: className } = getProps(Astro);
 
   <Link to='/' class="header__link hoverable">
     <span aria-hidden="true">{t`projectName`}</span>
-    <img class="header__logo" src="/logo.svg" alt={t`Components.logoDescription`} />
+    <Logo class="header__logo" />
   </Link>
 
   <SelectLanguage class="header__lang" />
