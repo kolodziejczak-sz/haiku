@@ -13,15 +13,14 @@ export interface Props {
 const { class: className } = getProps<Props>(Astro);
 const t = useTranslation(Astro);
 const currentLang = getLangFromContext(Astro);
-
 ---
 
 <div class={clsx(className, 'select-language hoverable')}>
-  <Icon name="jam:language" class="select-language__icon" aria-hidden="true" />
+  <Icon name="ion:language-outline" class="select-language__icon" aria-hidden="true" />
   <select
     aria-label={t`Components.selectLanguage`}
     class="select-language__input"
-    data-js="select-language"
+    data-js-ref="select-language"
   >
     {Object.entries(supportedLanguages).map(([key, name]) => {
       const isSelected = currentLang === key;
@@ -29,6 +28,7 @@ const currentLang = getLangFromContext(Astro);
       return (
         <option
           class="select-language__option"
+          lang={key}
           value={key}
           selected={isSelected}
         >
@@ -40,21 +40,9 @@ const currentLang = getLangFromContext(Astro);
 </div>
 
 <script>
-  const selectLanguageEl = document.querySelector('[data-js="select-language"]');
+  const selectLanguage = document.querySelector('[data-js-ref="select-language"]');
 
-  const setCookie = (key, value) => {
-    const maxAge = 60 * 60 * 24 * 365;
-    document.cookie = `${key}=${value}; max-age=${maxAge}; path="/"; Secure`;
-  };
-
-  selectLanguageEl.addEventListener('change', ({ target: { value: nextLang }}) => {
-    /** Set cookie and reload page */
-    const future = false;
-    if (future) {
-      setCookie('lang', nextLang);
-      location.reload();
-    }
-
+  selectLanguage.addEventListener('change', ({ target: { value: nextLang }}) => {
     const location = window.location;
     const [_leadingSlash, _oldLang, ...rest] = location.pathname.split('/');
     const slug = rest.join('/');

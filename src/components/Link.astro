@@ -9,8 +9,9 @@ export interface Props {
 
 const { to, children, ...restProps } = getProps<Props>(Astro);
 const url = createLink(to, Astro);
+const isExternal = url.startsWith('http');
 
 ---
-<a {...restProps} href={url}>
+<a {...restProps} href={url} target={isExternal ? '_blank' : undefined}>
   <slot />
 </a>

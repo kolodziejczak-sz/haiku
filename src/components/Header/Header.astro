@@ -6,6 +6,7 @@ import Link from '@/components/Link.astro';
 import Logo from '@/components/Header/Logo.astro';
 import Nav from '@/components/Header/Nav.astro';
 import SelectLanguage from '@/components/Header/SelectLanguage.astro';
+import ToggleColorScheme from '@/components/Header/ToggleColorScheme.astro';
 
 export interface Props {
   class?: string;
@@ -21,11 +22,14 @@ const { class: className } = getProps(Astro);
   </Link>
 
   <Link to='/' class="header__link hoverable">
-    <span aria-hidden="true">{t`projectName`}</span>
+    <span>{t`projectName`}</span>
     <Logo class="header__logo" />
   </Link>
 
-  <SelectLanguage class="header__lang" />
+  <div class="header__left js-only">
+    <SelectLanguage />
+    <ToggleColorScheme />
+  </div>
 
   <Nav class="header__nav" />
 </header>

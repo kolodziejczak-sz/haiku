@@ -1,0 +1,51 @@
+---
+import clsx from 'clsx';
+import { useTranslation } from '@/features/i18n/useTranslation';
+import { getProps } from '@/features/utils/getProps';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className } = getProps<Props>(Astro);
+const t = useTranslation(Astro);
+
+---
+
+<button
+  class={clsx(className, 'theme hoverable')}
+  aria-label={t`Components.turnOnDarkTheme`}
+  data-js-ref="theme-button"
+>
+  <svg viewBox="0 0 16 16" class="theme__icon icon" aria-hidden="true">
+    <mask id="mask">
+      <rect x="0" y="0" width="100%" height="100%" fill="#fff" />
+      <circle class="theme__mask" cx="11" cy="6" r="3.5" fill="#000" />
+    </mask>
+    <g stroke="currentColor" stroke-linecap="round">
+      <circle class="theme__circle" mask="url(#mask)" cx="8" cy="8" r="3.25"   />
+      <path class="theme__rays" stroke-width="1.5" d="m2.75 13.25l.5-.5m9.5 0l.5.5m-.5-10l.5-.5m-10 .5l-.5-.5M2.25 8h-1m13.5 0h-1M8 13.75v1m0-13.5v1" />
+    </g>
+  </svg>
+</button>
+
+<script>
+  const root = document.documentElement;
+  const button = document.querySelector('[data-js-ref="theme-button"]');
+  const themeVar = getComputedStyle(root).getPropertyValue('--theme').trim();
+  const isDarkMode = themeVar === 'dark';
+
+  button.setAttribute('aria-pressed', isDarkMode);
+
+  button.onclick = () => {
+    const isPressed = button.getAttribute('aria-pressed') === 'true';
+    const shouldSetDarkTheme = !isPressed;
+
+    button.setAttribute('aria-pressed', !isPressed);
+
+    root.classList.toggle('dark', shouldSetDarkTheme);
+    root.classList.toggle('light', !shouldSetDarkTheme);
+
+    localStorage.setItem('dark', shouldSetDarkTheme);
+  }
+</script>

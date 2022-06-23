@@ -9,8 +9,9 @@
       "logoDescription": "The site logo: the sun behind a mountain",
       "skipToMainContent": "Skip to main content",
       "selectLanguage": "Select language",
-      "menu": "Menu",
-      "main": "Main"
+      "turnOnDarkTheme": "Turn on dark theme",
+      "main": "Main",
+      "menu": "Menu"
     }
   },
   "pl": {
@@ -18,13 +19,14 @@
     "projectName": "Projekt Haiku",
     "Components": {
       "aboutMe": "O mnie",
-      "home": "Strona główna",
-      "intro": "Wprowadzenie",
+      "home": "Start",
+      "intro": "Wstęp",
+      "logoDescription": "Logo strony: słońce za górą",
       "skipToMainContent": "Przejdź do głównej treści",
       "selectLanguage": "Wybierz język",
-      "logoDescription": "Logo strony: słońce za górą",
-      "menu": "Menu",
-      "main": "Główne"
+      "turnOnDarkTheme": "Włącz ciemny motyw",
+      "main": "Główne",
+      "menu": "Menu"
     }
   }
 }

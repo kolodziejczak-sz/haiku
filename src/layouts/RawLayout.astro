@@ -21,7 +21,7 @@ const pageLang = getLangFromContext(Astro);
 
 ---
 
-<html lang={pageLang}>
+<html class="no-js" lang={pageLang}>
 
 <head>
   <meta charset="utf-8" />
@@ -32,6 +32,18 @@ const pageLang = getLangFromContext(Astro);
 </head>
 
 <body>
+  <script is:inline>
+    const rootClass = document.documentElement.classList;
+    rootClass.remove('no-js');
+
+    const darkThemePreference = localStorage.getItem('dark');
+    if (darkThemePreference !== null) {
+      const prefersDarkTheme = darkThemePreference === 'true';
+
+      rootClass.toggle('dark', prefersDarkTheme);
+      rootClass.toggle('light', !prefersDarkTheme);
+    }
+  </script>
   <slot />
 </body>
 

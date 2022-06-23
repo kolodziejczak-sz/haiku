@@ -15,6 +15,9 @@
   border-width: 0;
 }
 
+.no-js .js-only {
+  visibility: hidden;
+}
 
 .image {
   aspect-ratio: 16/9;

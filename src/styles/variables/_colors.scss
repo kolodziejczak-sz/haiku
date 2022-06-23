@@ -1,4 +1,6 @@
 :root {
+  --theme: light;
+
   --bg-100: hsl(0 0% 100%);
   --bg-200: hsl(204 45% 98%);
   --bg-300: hsl(210 38% 95%);
@@ -17,25 +19,28 @@
 
   --text-purple-600: hsl(268 29% 48%);
   --text-blue-600: hsl(213 78% 45%);
+  --text-orange-600: hsl(26 71% 76%);
+}
 
-  @media (prefers-color-scheme: dark) {
-    --bg-100: hsl(0 0% 0%);
-    --bg-200: hsl(204 45% 2%);
-    --bg-300: hsl(210 38% 5%);
-    --bg-400: hsl(216, 19%, 11%);
-  
-    --text-600: hsl(215 18% 75%);
-    --text-900: hsl(218 17% 85%);
-  
-    --border-300: hsl(214 32% 9%);
-  
-    --bg-purple-100: hsl(270 50% 3%);
-    --bg-purple-600: hsl(268 29% 52%);
-  
-    --border-blue-600: hsl(212 88% 44%);
-    --border-purple-600: hsl(269 26% 50%);
-  
-    --text-purple-600: hsl(240 100% 81%);
-    --text-blue-600: hsl(213 78% 55%);
-  }
+@include darkMode {
+  --theme: dark;
+
+  --bg-100: hsl(0 0% 0%);
+  --bg-200: hsl(204 45% 2%);
+  --bg-300: hsl(210 38% 5%);
+  --bg-400: hsl(216, 19%, 11%);
+
+  --text-600: hsl(215 18% 75%);
+  --text-900: hsl(218 17% 85%);
+
+  --border-300: hsl(214 32% 9%);
+
+  --bg-purple-100: hsl(270 50% 3%);
+  --bg-purple-600: hsl(268 29% 52%);
+
+  --border-blue-600: hsl(212 88% 44%);
+  --border-purple-600: hsl(269 26% 50%);
+
+  --text-purple-600: hsl(240 100% 81%);
+  --text-blue-600: hsl(213 78% 55%);
 }
