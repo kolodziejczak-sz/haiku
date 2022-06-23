@@ -9,7 +9,6 @@ export interface Props {
 
 const { class: className } = getProps<Props>(Astro);
 const t = useTranslation(Astro);
-
 ---
 
 <button
@@ -32,6 +31,7 @@ const t = useTranslation(Astro);
 <script>
   const root = document.documentElement;
   const button = document.querySelector('[data-js-ref="theme-button"]');
+
   const themeVar = getComputedStyle(root).getPropertyValue('--theme').trim();
   const isDarkMode = themeVar === 'dark';
 

@@ -6,7 +6,7 @@ import Link from '@/components/Link.astro';
 import Logo from '@/components/Header/Logo.astro';
 import Nav from '@/components/Header/Nav.astro';
 import SelectLanguage from '@/components/Header/SelectLanguage.astro';
-import ToggleColorScheme from '@/components/Header/ToggleColorScheme.astro';
+import ThemeButton from '@/components/Header/ThemeButton.astro';
 
 export interface Props {
   class?: string;
@@ -28,7 +28,7 @@ const { class: className } = getProps(Astro);
 
   <div class="header__left js-only">
     <SelectLanguage />
-    <ToggleColorScheme />
+    <ThemeButton />
   </div>
 
   <Nav class="header__nav" />
