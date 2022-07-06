@@ -1,5 +1,5 @@
 .select-language {
-  --select-language-width: var(--btn-icon-size);
+  --select-language-width: var(--space-m);
 
   border: 0;
   display: inline-grid;
@@ -17,8 +17,4 @@
   appearance: none;  
   border: 0;
   padding-inline: var(--select-language-width) 0;
-}
-
-.select-language__option {
-  color: var(--text-color);
 }

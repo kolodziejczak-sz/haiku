@@ -20,6 +20,9 @@
   --text-purple-600: hsl(268 29% 48%);
   --text-blue-600: hsl(213 78% 45%);
   --text-orange-600: hsl(26 71% 76%);
+
+  --accent-color: var(--text-purple-600);
+
 }
 
 @include darkMode {

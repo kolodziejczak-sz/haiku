@@ -15,9 +15,10 @@
   border-width: 0;
 }
 
-.no-js .js-only {
-  visibility: hidden;
-}
+// enable when hmr will be fixed
+// .no-js .js-only {
+//   visibility: hidden;
+// }
 
 .image {
   aspect-ratio: 16/9;

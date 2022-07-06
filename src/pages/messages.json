@@ -4,11 +4,14 @@
     "projectName": "Project Haiku",
     "Components": {
       "aboutMe": "About me",
+      "backToMainContent": "Back to top",
+      "contact": "Contact",
       "home": "Home",
       "intro": "Intro",
+      "language": "Language",
       "logoDescription": "The site logo: the sun behind a mountain",
-      "skipToMainContent": "Skip to main content",
       "selectLanguage": "Select language",
+      "skipToMainContent": "Skip to main content",
       "turnOnDarkTheme": "Turn on dark theme",
       "main": "Main",
       "menu": "Menu"
@@ -19,11 +22,14 @@
     "projectName": "Projekt Haiku",
     "Components": {
       "aboutMe": "O mnie",
+      "backToMainContent": "Wróć na początek",
+      "contact": "Kontakt",
       "home": "Start",
       "intro": "Wstęp",
+      "language": "Język",
       "logoDescription": "Logo strony: słońce za górą",
-      "skipToMainContent": "Przejdź do głównej treści",
       "selectLanguage": "Wybierz język",
+      "skipToMainContent": "Przejdź do głównej treści",
       "turnOnDarkTheme": "Włącz ciemny motyw",
       "main": "Główne",
       "menu": "Menu"

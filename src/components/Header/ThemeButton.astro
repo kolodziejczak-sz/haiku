@@ -16,7 +16,7 @@ const t = useTranslation(Astro);
   aria-label={t`Components.turnOnDarkTheme`}
   data-js-ref="theme-button"
 >
-  <svg viewBox="0 0 16 16" class="theme__icon icon" aria-hidden="true">
+  <svg viewBox="0 0 16 16" class="icon" aria-hidden="true">
     <mask id="mask">
       <rect x="0" y="0" width="100%" height="100%" fill="#fff" />
       <circle class="theme__mask" cx="11" cy="6" r="3.5" fill="#000" />
@@ -30,22 +30,22 @@ const t = useTranslation(Astro);
 
 <script>
   const root = document.documentElement;
-  const button = document.querySelector('[data-js-ref="theme-button"]');
+  const button = document.querySelector<HTMLButtonElement>('[data-js-ref="theme-button"]');
 
   const themeVar = getComputedStyle(root).getPropertyValue('--theme').trim();
   const isDarkMode = themeVar === 'dark';
 
-  button.setAttribute('aria-pressed', isDarkMode);
+  button.setAttribute('aria-pressed', `${isDarkMode}`);
 
   button.onclick = () => {
     const isPressed = button.getAttribute('aria-pressed') === 'true';
     const shouldSetDarkTheme = !isPressed;
 
-    button.setAttribute('aria-pressed', !isPressed);
+    button.setAttribute('aria-pressed', `${!isPressed}`);
 
     root.classList.toggle('dark', shouldSetDarkTheme);
     root.classList.toggle('light', !shouldSetDarkTheme);
 
-    localStorage.setItem('dark', shouldSetDarkTheme);
-  }
+    localStorage.setItem('dark', `${shouldSetDarkTheme}`);
+  };
 </script>

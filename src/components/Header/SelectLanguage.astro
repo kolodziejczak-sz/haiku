@@ -27,7 +27,6 @@ const currentLang = getLangFromContext(Astro);
       
       return (
         <option
-          class="select-language__option"
           lang={key}
           value={key}
           selected={isSelected}
@@ -42,7 +41,8 @@ const currentLang = getLangFromContext(Astro);
 <script>
   const selectLanguage = document.querySelector('[data-js-ref="select-language"]');
 
-  selectLanguage.addEventListener('change', ({ target: { value: nextLang }}) => {
+  selectLanguage.addEventListener('change', (event) => {
+    const nextLang = (event.target as HTMLSelectElement).value;
     const pathArray = location.pathname.split('/').slice(2);
     const slug = pathArray.join('/');
 

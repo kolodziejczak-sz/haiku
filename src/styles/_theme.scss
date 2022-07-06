@@ -1,19 +1,13 @@
 body {
-  --accent-color: var(--text-purple-600);
-  --bg-color: var(--bg-200);
-  --text-color: var(--text-900);
-  --btn-icon-size: var(--space-m);
-  --text-header-color: var(--text-600);
-
   accent-color: var(--accent-color);
-  background-color: var(--bg-color);
+  background-color: var(--bg-200);
   color-scheme: light dark;
-  color: var(--text-color);
+  color: var(--text-900);
   display: grid;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
   font-size: var(--fs-0);
-  grid-auto-rows: minmax(min-content, max-content);
-  transition: background-color 250ms ease-out;
+  grid-template-rows: auto 1fr auto;
+  // transition: background-color 250ms ease-out;
 }
 
 main {

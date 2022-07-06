@@ -3,10 +3,6 @@
   place-content: center;
 }
 
-.theme__icon {
-  width: var(--btn-icon-size);
-}
-
 .theme__mask,
 .theme__rays,
 .theme__circle {
@@ -19,7 +15,6 @@
 
 .theme__circle { transform: scale(1.5) }
 .theme__rays { transform: scale(0) }
-.theme__mask { transform: translate(0) }
 
 @include darkMode {
   .theme__circle { transform: scale(1) }

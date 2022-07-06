@@ -21,7 +21,7 @@ const navList = [
 ---
 
 <nav aria-label={t`Components.main`} class={clsx(className, 'nav')}>
-  <ul class="nav__list">
+  <ul class="nav__list" role="list">
     {navList.map(({ to, text }) => {
       const isActive = to.slice(1) === slug;
       const className = clsx(
