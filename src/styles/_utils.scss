@@ -23,6 +23,18 @@
 .image {
   aspect-ratio: 16/9;
   object-fit: cover;
+  width: 100%;
+}
+
+.hoverable {
+  color: var(--text-600);
+  cursor: pointer;
+}
+
+.hoverable:hover,
+.hoverable:focus,
+.hoverable:focus-within {
+  color: var(--text-900);
 }
 
 .grid-center {

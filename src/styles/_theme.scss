@@ -38,14 +38,3 @@ button {
 *:focus-visible {
   outline: 2px solid var(--accent-color);
 }
-
-.hoverable {
-  color: var(--text-600);
-  cursor: pointer;
-}
-
-.hoverable:hover,
-.hoverable:focus,
-.hoverable:focus-within {
-  color: var(--text-900);
-}

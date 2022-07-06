@@ -1,0 +1,13 @@
+.link-btn {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  padding-block: var(--space-3xs);
+  text-decoration: none;
+  width: fit-content;
+}
+
+.link-btn--active {
+  text-decoration: underline var(--accent-color) solid 0.25rem;
+  text-underline-offset: 0.5em;
+}

@@ -25,30 +25,30 @@ const slug = getSlugFromContext(Astro);
       <ul class="footer__list" role="list">
         {Object.entries(supportedLanguages).map(([key, name]) => (
           <li lang={key}>
-            <Link class="header__link hoverable" to={'/' + slug} lang={key}>{name}</Link>
+            <Link class="link-btn hoverable" to={'/' + slug} lang={key}>{name}</Link>
           </li>
         ))}
       </ul>
     </section>
     <section>
       <h2 class="footer__title">{t`Components.contact`}</h2>
-      <ul class="footer__list" role="list">
+      <ul class="footer__list footer__list--inline" role="list">
         <li>
-          <Link class="header__link hoverable" to="mailto:some_email@gmail.com">
-            <Icon class="footer__icon" name="carbon:email" aria-hidden="true" />
-            <span>Email</span>
+          <Link class="link-btn hoverable" to="mailto:some_email@gmail.com">
+            <Icon name="carbon:email" aria-hidden="true" />
+            <span class="sr-only">Email</span>
           </Link>
         </li>
         <li>
-          <Link class="header__link hoverable" to="https://www.instagram.com/">
-            <Icon class="footer__icon" name="carbon:logo-instagram" aria-hidden="true" />
-            <span>Instagram</span>
+          <Link class="link-btn hoverable" to="https://www.instagram.com/">
+            <Icon name="carbon:logo-instagram" aria-hidden="true" />
+            <span class="sr-only">Instagram</span>
           </Link>
         </li>
         <li>
-          <Link class="header__link hoverable" to="https://www.linkedin.com/">
-            <Icon class="footer__icon" name="carbon:logo-linkedin" aria-hidden="true" />
-            <span>LinkedIn</span>
+          <Link class="link-btn hoverable" to="https://www.linkedin.com/">
+            <Icon name="carbon:logo-linkedin" aria-hidden="true" />
+            <span class="sr-only">LinkedIn</span>
           </Link>
         </li>
       </ul>

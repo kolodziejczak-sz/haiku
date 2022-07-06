@@ -19,13 +19,14 @@
   margin-block-end: var(--space-2xs);
 }
 
-.footer__icon {
-  margin-inline-end: var(--space-3xs);
-}
-
 .footer__list {
   list-style: none;
   padding: 0;
+}
+
+.footer__list--inline {
+  display: flex;
+  gap: var(--space-xs);
 }
 
 .footer__copyright {

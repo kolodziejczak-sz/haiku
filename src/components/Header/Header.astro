@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { useTranslation } from '@/features/i18n/useTranslation';
 import { getProps } from '@/features/utils/getProps';
 import Link from '@/components/Link.astro';
-import Logo from '@/components/Header/Logo.astro';
+import Logo from '@/components/Logo.astro';
 import Nav from '@/components/Header/Nav.astro';
 import SelectLanguage from '@/components/Header/SelectLanguage.astro';
 import ThemeButton from '@/components/Header/ThemeButton.astro';
@@ -17,11 +17,11 @@ const { class: className } = getProps(Astro);
 
 ---
 <header class={clsx(className, 'header')}>
-  <Link to="#main-content" class="header__skip header__link hoverable">
+  <Link to="#main-content" class="header__skip link-btn hoverable">
     {t`Components.skipToMainContent`}
   </Link>
 
-  <Link to='/' class="header__link hoverable">
+  <Link to='/' class="link-btn hoverable">
     <span>{t`projectName`}</span>
     <Logo class="header__logo" />
   </Link>
@@ -31,5 +31,5 @@ const { class: className } = getProps(Astro);
     <ThemeButton />
   </div>
 
-  <Nav class="header__nav" />
+  <Nav />
 </header>
