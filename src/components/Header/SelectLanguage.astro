@@ -39,13 +39,15 @@ const currentLang = getLangFromContext(Astro);
 </div>
 
 <script>
-  const selectLanguage = document.querySelector('[data-js-ref="select-language"]');
+  const selectLanguage = document.querySelector<HTMLSelectElement>(
+    '[data-js-ref="select-language"]'
+  );
 
-  selectLanguage.addEventListener('change', (event) => {
-    const nextLang = (event.target as HTMLSelectElement).value;
+  selectLanguage.onchange = () => {
+    const nextLang = selectLanguage.value;
     const pathArray = location.pathname.split('/').slice(2);
     const slug = pathArray.join('/');
 
     location.pathname = `/${nextLang}/${slug}`;
-  });
+  };
 </script>

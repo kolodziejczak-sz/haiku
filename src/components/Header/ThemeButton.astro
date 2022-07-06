@@ -30,7 +30,9 @@ const t = useTranslation(Astro);
 
 <script>
   const root = document.documentElement;
-  const button = document.querySelector<HTMLButtonElement>('[data-js-ref="theme-button"]');
+  const button = document.querySelector<HTMLButtonElement>(
+    '[data-js-ref="theme-button"]'
+  );
 
   const themeVar = getComputedStyle(root).getPropertyValue('--theme').trim();
   const isDarkMode = themeVar === 'dark';
