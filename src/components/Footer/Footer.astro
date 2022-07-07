@@ -32,23 +32,23 @@ const slug = getSlugFromContext(Astro);
     </section>
     <section>
       <h2 class="footer__title">{t`Components.contact`}</h2>
-      <ul class="footer__list footer__list--inline" role="list">
+      <ul class="footer__list" role="list">
         <li>
           <Link class="link-btn hoverable" to="mailto:some_email@gmail.com">
             <Icon name="carbon:email" aria-hidden="true" />
-            <span class="sr-only">Email</span>
+            <span>Email</span>
           </Link>
         </li>
         <li>
           <Link class="link-btn hoverable" to="https://www.instagram.com/">
-            <Icon name="carbon:logo-instagram" aria-hidden="true" />
-            <span class="sr-only">Instagram</span>
+            <Icon name="mdi:instagram" aria-hidden="true" />
+            <span>Instagram</span>
           </Link>
         </li>
         <li>
           <Link class="link-btn hoverable" to="https://www.linkedin.com/">
             <Icon name="carbon:logo-linkedin" aria-hidden="true" />
-            <span class="sr-only">LinkedIn</span>
+            <span>LinkedIn</span>
           </Link>
         </li>
       </ul>

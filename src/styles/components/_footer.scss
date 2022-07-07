@@ -1,32 +1,27 @@
 .footer {
   background-color: var(--bg-400);
   color: var(--text-600);
-  font-size: var(--fs--1);
+  font-size: var(--fs--2);
   padding-block: var(--space-s);
 }
 
 .footer__content {
   display: grid;
+  gap: var(--space-xs);
   grid-auto-flow: column;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-2xs);
-  text-overflow: wrap;
+  grid-template-columns: repeat(3, min-content);
+  justify-content: space-between;
 }
 
 .footer__title {
   font-weight: normal;
-  font-size: var(--fs-0);
+  font-size: var(--fs--1);
   margin-block-end: var(--space-2xs);
 }
 
 .footer__list {
   list-style: none;
   padding: 0;
-}
-
-.footer__list--inline {
-  display: flex;
-  gap: var(--space-xs);
 }
 
 .footer__copyright {
