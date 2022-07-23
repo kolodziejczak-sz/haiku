@@ -1,0 +1,21 @@
+---
+import { resolve } from 'path';
+import { Image } from '@astrojs/image/components';
+import { getProps } from '@/features/utils/getProps';
+
+export interface Props {
+  aspectRatio?: string;
+  class?: string;
+  format?: string;
+  height?: number;
+  src: string;
+  width?: number;
+}
+
+const { class: className, src, ...rest } = getProps<Props>(Astro);
+const { pathname } = Astro.canonicalURL;
+
+console.log(import.meta, Astro);
+---
+
+<Image class={className} src={import(src)} {...rest} />
