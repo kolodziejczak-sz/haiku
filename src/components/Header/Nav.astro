@@ -20,16 +20,18 @@ const navList = [
 ];
 ---
 
-<nav aria-label={t`Components.main`} class="header__nav">
-  <ul class="header__list" role="list">
+<nav aria-label={t`Components.main`} class={clsx(className, 'nav')}>
+  <ul class="nav__list" role="list">
     {navList.map(({ to, text }) => {
       const isActive = to.slice(1) === slug;
       const className = clsx(
-        'link-btn', 'hoverable', { 'link-btn--active': isActive }
+        'hoverable', 'link-btn', { 'link-btn--active': isActive }
       );
 
       return (
-        <li><Link class={className} to={to}>{text}</Link></li>
+        <li>
+          <Link class={className} to={to}>{text}</Link>
+        </li>
       );
     })}
   </ul>

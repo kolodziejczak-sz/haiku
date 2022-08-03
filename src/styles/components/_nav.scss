@@ -1,0 +1,8 @@
+.nav__list {
+  display: grid;
+  gap: var(--space-xs);
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  list-style-type: none;
+  padding: 0;
+}
