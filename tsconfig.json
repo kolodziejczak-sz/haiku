@@ -9,7 +9,7 @@
       "@/*": ["./src/*"],
     },
     "target": "ESNext",
-    "types": ["vite/client"],
+    "types": ["vite/client", "@astrojs/image/client"],
     "resolveJsonModule": true
   },
   "include": ["./src"]

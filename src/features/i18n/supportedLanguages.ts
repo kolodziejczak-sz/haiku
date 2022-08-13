@@ -3,7 +3,7 @@ export const defaultLanguage = 'en';
 export const supportedLanguages = {
   en: 'English',
   pl: 'Polski'
-};
+} as const;
 
 export const supportedLanguagesArray = Object.keys(supportedLanguages);
 

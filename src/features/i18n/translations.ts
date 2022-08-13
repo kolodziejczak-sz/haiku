@@ -1,17 +1,37 @@
 import merge from 'lodash.merge';
 import keysDiff from 'keys-diff';
+import { clone } from '@/features/utils/clone';
 import { error } from '@/features/utils/error';
 import {
   defaultLanguage,
   supportedLanguagesArray,
 } from '@/features/i18n/supportedLanguages';
 
-const messageFiles = import.meta.globEager('/**/messages.(json|ts)');
+type Translations = Record<string, string | Record<string, string>>;
 
-export const translations = Object.values(messageFiles).reduce(
-  (acc, { default: values }) => merge(acc, values),
-  {}
-);
+export const translations: Translations = {};
+
+export const addTranslations = (draft: Translations, prefix?: string) => {
+  const draftCopy = clone(draft);
+
+  if (prefix) {
+    supportedLanguagesArray.forEach((lang) => {
+      if (translations[lang][prefix]) {
+        delete translations[lang][prefix];
+      }
+
+      draftCopy[lang] = {
+        [prefix]: draftCopy[lang],
+      } as any;
+    });
+  }
+
+  const newTranslations = merge(translations, draftCopy);
+
+  Object.assign(translations, newTranslations);
+
+  verifyTranslations();
+};
 
 const verifyTranslations = () => {
   supportedLanguagesArray.forEach((lang) => {
@@ -37,4 +57,11 @@ const verifyTranslations = () => {
   });
 };
 
-verifyTranslations();
+const messageFiles = import.meta.glob('/**/messages.(json|ts)', { eager: true });
+
+const messageFilesTranslations = Object.values(messageFiles).reduce<Translations>(
+  (acc, { default: values }) => merge(acc, values),
+  {}
+);
+
+addTranslations(messageFilesTranslations);

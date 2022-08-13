@@ -1,10 +1,11 @@
 import { AstroGlobal } from 'astro';
 
 export const getSlugFromContext = ({
-  canonicalURL: { pathname },
+  url: { pathname },
 }: AstroGlobal) => {
   const [_leadingSlash, _oldLang, ...rest] = pathname.split('/');
-  const slug = rest.join('/').slice(0, -1);
+  const path = rest.join('/');
+  const slug = path.endsWith('/') ?  path.slice(0, -1) : path;
 
   return slug;
 };

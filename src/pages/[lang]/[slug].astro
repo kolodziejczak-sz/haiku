@@ -10,11 +10,11 @@ export const getStaticPaths = async () => {
   for (const page of pages) {
     const slug = getSlugForFile(page.file);
 
-    const module = await page.default();
-    const Component = module.default;
-
     supportedLanguagesArray.forEach(lang => {
-      staticPaths.push({ params: { lang, slug }, props: { Component } })
+      staticPaths.push({
+        params: { lang, slug },
+        props: { Component: page }
+      })
     });
   }
 
@@ -24,5 +24,4 @@ export const getStaticPaths = async () => {
 const { Component } = Astro.props;
 
 ---
-
-<Component />
+<Component.default  />

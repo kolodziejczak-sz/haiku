@@ -1,0 +1,20 @@
+---
+layout: '@/layouts/BaseLayout.astro'
+class: 'container'
+title: 't.404.notFound'
+---
+# `notFound`
+
+<Link to='/'>`takeMeHome`</Link>
+
+
+export const messages = {
+  en: {
+    notFound: 'Page not found',
+    takeMeHome: 'Back to the homepage'
+  },
+  pl: {
+    notFound: 'Nie znaleziono strony',
+    takeMeHome: 'Wróć na stronę główną'
+  }
+};

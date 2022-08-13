@@ -2,7 +2,7 @@ import { AstroGlobal } from 'astro';
 import { supportedLanguagesArray } from '@/features/i18n/supportedLanguages';
 
 export const getLangFromContext = ({
-  canonicalURL: { pathname },
+  url: { pathname },
 }: AstroGlobal) => {
   const [lang] = pathname.slice(1).split('/');
 

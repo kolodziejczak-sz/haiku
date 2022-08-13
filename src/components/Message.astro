@@ -1,13 +1,26 @@
 ---
 import dedent from 'dedent';
-import { Markdown } from 'astro/components';
-import { getProps } from '@/features/utils/getProps';
+import { useTranslation } from '@/features/i18n/useTranslation';
+import { getSlugFromContext } from '@/features/router/getSlugFromContext';
+import RenderMiddleware from '@/components/RenderMiddleware.astro';
+import Markdown from '@/components/Markdown.astro';
   
-export interface Props {
-  key: string;
+const t = useTranslation(Astro);
+const slug = getSlugFromContext(Astro);
+
+const rawTranslationKey = await Astro.slots.render('default');
+const translationKey = `${slug}.${rawTranslationKey}`;
+const content = dedent(t(translationKey));
+
+const removeParagraph = (html: string) => {
+  if (html.length > 60) {
+    return html;
+  }
+
+ return html.slice(3 /**<p>*/, -6 /**</p>\n*/);
 }
 
-const { key } = getProps<Props>(Astro);
-
 ---
-<Markdown content={dedent(key)} />
+<RenderMiddleware callback={removeParagraph}>
+  <Markdown text={content} />
+</RenderMiddleware>

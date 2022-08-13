@@ -1,6 +1,10 @@
-export const allPages = import.meta.globEager(`/src/pages/**/*.md`);
+type Page = {
+  file: string;
+}
+
+export const allPages = import.meta.glob<true, string, Page>('/src/pages/**/*.mdx', { eager: true });
 
 export const universalPages = Object.assign(
-  import.meta.globEager(`/src/pages/_*.md`),
-  import.meta.globEager(`/src/pages/_*/index.md`),
+  import.meta.glob<true, string, Page>('/src/pages/_*.mdx', { eager: true }),
+  import.meta.glob<true, string, Page>('/src/pages/_*/index.mdx', { eager: true }),
 );
