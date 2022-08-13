@@ -10,17 +10,15 @@ const slug = getSlugFromContext(Astro);
 
 const rawTranslationKey = await Astro.slots.render('default');
 const translationKey = `${slug}.${rawTranslationKey}`;
-const content = dedent(t(translationKey));
+const content = dedent(
+  t(translationKey).trim()
+);
 
-const removeParagraph = (html: string) => {
-  if (html.length > 60) {
-    return html;
-  }
-
- return html.slice(3 /**<p>*/, -6 /**</p>\n*/);
+const removeParagraphWrapper = (html: string) => {
+  return html.slice(3 /**<p>*/, -6 /**</p>\n*/);
 }
 
 ---
-<RenderMiddleware callback={removeParagraph}>
+<RenderMiddleware callback={removeParagraphWrapper}>
   <Markdown text={content} />
 </RenderMiddleware>
