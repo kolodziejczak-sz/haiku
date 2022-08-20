@@ -3,6 +3,10 @@
   width: min(100% - var(--space-2xl), 1200px);
 }
 
+.text-container {
+  max-width: 80ch;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

@@ -4,7 +4,10 @@ import mdx from '@astrojs/mdx';
 import { mdxProvider } from './src/features/utils/mdxProvider.mjs';
 
 export default defineConfig({
-  integrations: [mdx()],
+  integrations: [
+    mdx(),
+    image()
+  ],
   vite: {
     plugins: [mdxProvider()]
   },
