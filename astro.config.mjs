@@ -6,7 +6,9 @@ import { mdxProvider } from './src/features/utils/mdxProvider.mjs';
 export default defineConfig({
   integrations: [
     mdx(),
-    image()
+    image({
+      serviceEntryPoint: '@astrojs/image/sharp'
+    })
   ],
   vite: {
     plugins: [mdxProvider()]
