@@ -54,20 +54,20 @@
     }
   },
   "es": {
-    "content": "Treść",
-    "projectName": "Projekt Haiku",
+    "content": "Contenido",
+    "projectName": "Proyecto Haiku",
     "Components": {
-      "aboutMe": "O mnie",
-      "backToMainContent": "Wróć na początek",
-      "contact": "Kontakt",
-      "home": "Start",
-      "intro": "Wstęp",
-      "language": "Język",
-      "logoDescription": "Logo strony: słońce za górą",
-      "selectLanguage": "Wybierz język",
-      "skipToMainContent": "Przejdź do głównej treści",
-      "turnOnDarkTheme": "Włącz ciemny motyw",
-      "main": "Główne",
+      "aboutMe": "Sobre mí",
+      "backToMainContent": "Volver al principio",
+      "contact": "Contacto",
+      "home": "Inicio",
+      "intro": "Intro",
+      "language": "Lengua",
+      "logoDescription": "Logo de la página: sol por detrás de la montaña",
+      "selectLanguage": "Seleccione el idioma",
+      "skipToMainContent": "Ir al contenido principal",
+      "turnOnDarkTheme": "Seleccione un motivo oscuro",
+      "main": "Principal",
       "menu": "Menu"
     }
   }
