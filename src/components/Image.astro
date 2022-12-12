@@ -1,7 +1,7 @@
 ---
 import { getProps } from '@/features/utils/getProps';
 // import { getImage } from '@astrojs/image';
-import { Image } from '@astrojs/image/components';
+// import { Image } from '@astrojs/image/components';
 
 export interface Props {
   aspectRatio?: string;
@@ -16,4 +16,4 @@ const { class: className, src, ...rest } = getProps<Props>(Astro);
 const imagePath = `../assets/${src}`;
 
 ---
-<Image src={import(imagePath)} />
+<h1>image</h1>
