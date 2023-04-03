@@ -1,0 +1,34 @@
+---
+import { getProps } from '@/features/utils/getProps';
+import { useTranslation } from '@/features/i18n/useTranslation';
+import Link from '@/components/Link.astro';
+import Icon from '@/components/Icon.astro';
+
+export interface Props {
+  class?: string;
+};
+
+const { class: className } = getProps<Props>(Astro);
+const t = useTranslation(Astro);
+
+---
+<ul class={className} role="list">
+  <li>
+    <Link class="link-btn hoverable" to="mailto:k.mirellamaria@gmail.com">
+      <Icon name="carbon:email" aria-hidden="true" />
+      <span>Email</span>
+    </Link>
+  </li>
+  <li>
+    <Link class="link-btn hoverable" to="https://www.instagram.com/mirellakurzawa/">
+      <Icon name="mdi:instagram" aria-hidden="true" />
+      <span>Instagram</span>
+    </Link>
+  </li>
+  <li>
+    <Link class="link-btn hoverable" to="https://www.linkedin.com/in/mirella-kurzawa-857665197/">
+      <Icon name="jam:linkedin-square" aria-hidden="true" />
+      <span>LinkedIn</span>
+    </Link>
+  </li>
+</ul>

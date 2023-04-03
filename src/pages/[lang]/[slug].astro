@@ -1,27 +1,28 @@
 ---
-import { supportedLanguagesArray } from '@/features/i18n/supportedLanguages';
-import { getSlugForFile } from '@/features/router/getSlugForFile';
-import { universalPages } from '@/features/router/pages';
+import { getCollection, CollectionEntry } from 'astro:content';
+import { getProps } from '@/features/utils/getProps';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
 
 export const getStaticPaths = async () => {
-  const staticPaths = [];
-  const pages = Object.values(universalPages);
+  const allPages = await getCollection('pages');
 
-  for (const page of pages) {
-    const slug = getSlugForFile(page.file);
+  return allPages.map(entry => {
+    const [lang, fileName] = entry.slug.split('/');
+    console.log({ entry, lang, fileName });
 
-    supportedLanguagesArray.forEach(lang => {
-      staticPaths.push({
-        params: { lang, slug },
-        props: { Component: page }
-      })
-    });
-  }
+    return {
+      params: { lang, slug: fileName },
+      props: { entry, lang }
+    }
+  })
+};
 
-  return staticPaths;
-}
-
-const { Component } = Astro.props;
+const { entry } = getProps<{ entry: CollectionEntry<'pages'> }>(Astro);
+const { Content } = await entry.render();
 
 ---
-<Component.default  />
+<BaseLayout class="container">
+  <h1>{entry.data.title}</h1>
+  <Content />
+</BaseLayout>

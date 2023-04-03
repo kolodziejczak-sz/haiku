@@ -1,19 +1,75 @@
 ---
+import { ImageMetadata } from 'astro'
+import { getImage } from 'astro:assets'
 import { getProps } from '@/features/utils/getProps';
-// import { getImage } from '@astrojs/image';
-// import { Image } from '@astrojs/image/components';
 
-export interface Props {
-  aspectRatio?: string;
-  class?: string;
-  format?: string;
-  height?: number;
-  src: string;
-  width?: number;
+interface Props {
+  asset: ImageMetadata;
+  type?: 'insideContent';
+  alt: string;
 }
 
-const { class: className, src, ...rest } = getProps<Props>(Astro);
-const imagePath = `../assets/${src}`;
+const config = {
+  desktop: {
+    media: '(min-width: 50em)',
+    insideContent: {
+      horizontal: 680,
+      vertical: 460,
+    },
+  },
+  mobile: {
+    media: '(max-width: 50em)',
+    insideContent: {
+      horizontal: 340,
+      vertical: 220,
+    },
+  }
+} as const;
 
+const { asset, alt, type = 'insideContent' } = getProps<Props>(Astro);
+const { width, height } = asset;
+
+const isHorizontal = width > height;
+const directionKey = isHorizontal ? 'horizontal' : 'vertical';
+
+const desktopWidth = Math.min(width, config.desktop[type][directionKey]);
+const mobileWidth = Math.min(width, config.mobile[type][directionKey]);
+const shouldCreateImageForSmallerScreens = (desktopWidth / mobileWidth) > 1.5;
+
+// console.log({ isHorizontal, directionKey, width, desktopWidth, mobileWidth, shouldCreateImageForSmallerScreens });
+
+const [desktopImage, mobileImage] = await Promise.all(
+  [desktopWidth, shouldCreateImageForSmallerScreens ? mobileWidth : undefined]
+    .filter(Boolean)
+    .map((width) => getImage({ src: asset, width }))
+);
 ---
-<h1>image</h1>
+{shouldCreateImageForSmallerScreens ? (
+  <picture>
+      <source
+        media={config.mobile.media}
+        width={mobileImage.attributes.width}
+        height={mobileImage.attributes.height}
+        srcset={mobileImage.src}
+      />
+      <source
+        media={config.desktop.media}
+        width={desktopImage.attributes.width}
+        height={desktopImage.attributes.height}
+        srcset={desktopImage.src}
+      />
+      <img
+        src={desktopImage.src}
+        width={desktopImage.attributes.width}
+        height={desktopImage.attributes.height}
+        alt={alt}
+      />
+    </picture>
+) : (
+  <img
+    src={desktopImage.src}
+    width={desktopImage.attributes.width}
+    height={desktopImage.attributes.height}
+    alt={alt}
+  /> 
+)}

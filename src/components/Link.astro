@@ -1,5 +1,5 @@
 ---
-import { createLink } from '@/features/router/createLink';
+import { parseLink } from '@/features/router/parseLink';
 import { getProps } from '@/features/utils/getProps';
 
 export interface Props {
@@ -9,7 +9,7 @@ export interface Props {
 }
 
 const { to, lang, children, ...restProps } = getProps<Props>(Astro);
-const url = createLink(Astro, to, lang);
+const url = parseLink(Astro, to, lang);
 const isExternal = url.startsWith('http');
 
 ---

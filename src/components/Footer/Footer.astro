@@ -2,10 +2,9 @@
 import clsx from 'clsx';
 import { getProps } from '@/features/utils/getProps';
 import { useTranslation } from '@/features/i18n/useTranslation';
-import { supportedLanguages } from '@/features/i18n/supportedLanguages';
-import { getSlugFromContext } from '@/features/router/getSlugFromContext';
+import Contact from '@/components/Footer/Contact.astro';
+import Languages from '@/components/Footer/Languages.astro';
 import Link from '@/components/Link.astro';
-import Icon from '@/components/Icon.astro';
 
 export interface Props {
   class?: string;
@@ -13,46 +12,19 @@ export interface Props {
 
 const { class: className } = getProps<Props>(Astro);
 const t = useTranslation(Astro);
-const slug = getSlugFromContext(Astro);
 
 const currentYear = new Date().getFullYear();
 ---
 
 <footer class={clsx(className, 'footer')}>
   <div class="container footer__content">
-    <div class="footer__title">{t`projectName`}</div>
-    <section>
+    <section class="footer__languages">
       <h2 class="footer__title">{t`Components.language`}</h2>
-      <ul class="footer__list" role="list">
-        {Object.entries(supportedLanguages).map(([key, name]) => (
-          <li lang={key}>
-            <Link class="link-btn hoverable" to={'/' + slug} lang={key}>{name}</Link>
-          </li>
-        ))}
-      </ul>
+      <Languages class="footer__list" />
     </section>
     <section>
       <h2 class="footer__title">{t`Components.contact`}</h2>
-      <ul class="footer__list" role="list">
-        <li>
-          <Link class="link-btn hoverable" to="mailto:k.mirellamaria@gmail.com">
-            <Icon name="carbon:email" aria-hidden="true" />
-            <span>Email</span>
-          </Link>
-        </li>
-        <li>
-          <Link class="link-btn hoverable" to="https://www.instagram.com/mirellakurzawa/">
-            <Icon name="mdi:instagram" aria-hidden="true" />
-            <span>Instagram</span>
-          </Link>
-        </li>
-        <li>
-          <Link class="link-btn hoverable" to="https://www.linkedin.com/in/mirella-kurzawa-857665197/">
-            <Icon name="jam:linkedin-square" aria-hidden="true" />
-            <span>LinkedIn</span>
-          </Link>
-        </li>
-      </ul>
+      <Contact class="footer__list" />
     </section>
     <div class="footer__bottom">
       <p class="footer__copyright">
