@@ -1,15 +1,14 @@
 ---
-import { getProps } from '@/features/utils/getProps';
 import RawLayout from '@/layouts/RawLayout.astro';
 import Header from '@/components/Header/Header.astro'
 import Footer from '@/components/Footer/Footer.astro'
 
 export interface Props {
   class?: string;
-  title?: string;
+  title: string;
 };
 
-const { title, class: className } = getProps<Props>(Astro);
+const { title, class: className } = Astro.props;
 
 ---
 <RawLayout title={title}>

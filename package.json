@@ -14,7 +14,8 @@
     "@types/dlv": "1.1.2",
     "@types/lodash.merge": "4.6.7",
     "prettier": "2.8.7",
-    "sass": "1.60.0"
+    "sass": "1.60.0",
+    "typescript": "5.0.2"
   },
   "dependencies": {
     "@astrojs/markdoc": "0.1.0",

@@ -1,5 +1,4 @@
 ---
-import { getProps } from '@/features/utils/getProps';
 import { supportedLanguages } from '@/features/i18n/supportedLanguages';
 import { getSlugFromContext } from '@/features/router/getSlugFromContext';
 import Link from '@/components/Link.astro';
@@ -8,7 +7,7 @@ export interface Props {
   class?: string;
 };
 
-const { class: className } = getProps<Props>(Astro);
+const { class: className } = Astro.props;
 const slug = getSlugFromContext(Astro);
 
 ---

@@ -1,12 +1,10 @@
 ---
 import { Icon } from 'astro-icon'
 import clsx from 'clsx';
-import { getProps } from '@/features/utils/getProps';
 import RenderMiddleware from '@/components/RenderMiddleware.astro';
 
 export interface Props {
   name: string;
-  class?: string;
   [key: string]: string;
 }
 
@@ -14,7 +12,7 @@ export interface Props {
  * Icon Sets
  * https://icon-sets.iconify.design/
  */
-const { name, class: className, ...restProps } = getProps<Props>(Astro);
+const { name, class: className, ...restProps } = Astro.props;
 const [collection, icon] = name.split(':');
 const svgClassName = clsx(['icon', className]);
 

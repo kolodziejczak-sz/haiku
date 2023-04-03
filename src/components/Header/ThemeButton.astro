@@ -1,13 +1,12 @@
 ---
 import clsx from 'clsx';
 import { useTranslation } from '@/features/i18n/useTranslation';
-import { getProps } from '@/features/utils/getProps';
 
 export interface Props {
   class?: string;
 }
 
-const { class: className } = getProps<Props>(Astro);
+const { class: className } = Astro.props;
 const t = useTranslation(Astro);
 ---
 
@@ -33,6 +32,10 @@ const t = useTranslation(Astro);
   const button = document.querySelector<HTMLButtonElement>(
     '[data-js-ref="theme-button"]'
   );
+
+  if (!button) {
+    throw new Error('Could  not find selectLanguage element');
+  }
 
   const themeVar = getComputedStyle(root).getPropertyValue('--theme').trim();
   const isDarkMode = themeVar === 'dark';

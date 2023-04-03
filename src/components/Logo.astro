@@ -1,9 +1,12 @@
 ---
 import clsx from 'clsx';
 import { useTranslation } from '@/features/i18n/useTranslation';
-import { getProps } from '@/features/utils/getProps';
 
-const { class: className } = getProps(Astro);
+export interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
 const t = useTranslation(Astro);
 
 ---

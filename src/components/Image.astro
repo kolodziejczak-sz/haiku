@@ -1,9 +1,8 @@
 ---
 import { ImageMetadata } from 'astro'
 import { getImage } from 'astro:assets'
-import { getProps } from '@/features/utils/getProps';
 
-interface Props {
+export interface Props {
   asset: ImageMetadata;
   type?: 'insideContent';
   alt: string;
@@ -26,7 +25,7 @@ const config = {
   }
 } as const;
 
-const { asset, alt, type = 'insideContent' } = getProps<Props>(Astro);
+const { asset, alt, type = 'insideContent' } = Astro.props;
 const { width, height } = asset;
 
 const isHorizontal = width > height;

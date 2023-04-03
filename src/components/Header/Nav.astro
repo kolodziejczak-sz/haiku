@@ -2,7 +2,6 @@
 import clsx from 'clsx';
 import { useTranslation } from '@/features/i18n/useTranslation';
 import { getSlugFromContext } from '@/features/router/getSlugFromContext';
-import { getProps } from '@/features/utils/getProps';
 import Link from '@/components/Link.astro';
 
 export interface Props {
@@ -10,8 +9,8 @@ export interface Props {
 }
 
 const t = useTranslation(Astro);
-const { class: className } = getProps(Astro);
 const slug = getSlugFromContext(Astro);
+const { class: className } = Astro.props;
 
 const navList = [
   { to: '/', text: t`Components.home` },

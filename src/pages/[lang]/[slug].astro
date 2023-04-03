@@ -1,6 +1,5 @@
 ---
 import { getCollection, CollectionEntry } from 'astro:content';
-import { getProps } from '@/features/utils/getProps';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
 
@@ -18,11 +17,11 @@ export const getStaticPaths = async () => {
   })
 };
 
-const { entry } = getProps<{ entry: CollectionEntry<'pages'> }>(Astro);
+const { entry } = Astro.props as { entry: CollectionEntry<'pages'> };
 const { Content } = await entry.render();
 
 ---
-<BaseLayout class="container">
+<BaseLayout title={entry.data.title} class="container">
   <h1>{entry.data.title}</h1>
   <Content />
 </BaseLayout>
