@@ -21,8 +21,27 @@ declare module 'astro:content' {
 	export type CollectionEntry<C extends keyof typeof entryMap> =
 		(typeof entryMap)[C][keyof (typeof entryMap)[C]];
 
+	// TODO: Remove this when having this fallback is no longer relevant. 2.3? 3.0? - erika, 2023-04-04
+	/**
+	 * @deprecated
+	 * `astro:content` no longer provide `image()`.
+	 *
+	 * Please use it through `schema`, like such:
+	 * ```ts
+	 * import { defineCollection, z } from "astro:content";
+	 *
+	 * defineCollection({
+	 *   schema: ({ image }) =>
+	 *     z.object({
+	 *       image: image(),
+	 *     }),
+	 * });
+	 * ```
+	 */
+	export const image: never;
+
 	// This needs to be in sync with ImageMetadata
-	export const image: () => import('astro/zod').ZodObject<{
+	export type ImageFunction = () => import('astro/zod').ZodObject<{
 		src: import('astro/zod').ZodString;
 		width: import('astro/zod').ZodNumber;
 		height: import('astro/zod').ZodNumber;
@@ -52,15 +71,10 @@ declare module 'astro:content' {
 		| BaseSchemaWithoutEffects
 		| import('astro/zod').ZodEffects<BaseSchemaWithoutEffects>;
 
+	export type SchemaContext = { image: ImageFunction };
+
 	type BaseCollectionConfig<S extends BaseSchema> = {
-		schema?: S;
-		slug?: (entry: {
-			id: CollectionEntry<keyof typeof entryMap>['id'];
-			defaultSlug: string;
-			collection: string;
-			body: string;
-			data: import('astro/zod').infer<S>;
-		}) => string | Promise<string>;
+		schema?: S | ((context: SchemaContext) => S);
 	};
 	export function defineCollection<S extends BaseSchema>(
 		input: BaseCollectionConfig<S>
@@ -89,8 +103,9 @@ declare module 'astro:content' {
 		filter?: (entry: CollectionEntry<C>) => unknown
 	): Promise<CollectionEntry<C>[]>;
 
+	type ReturnTypeOrOriginal<T> = T extends (...args: any[]) => infer R ? R : T;
 	type InferEntrySchema<C extends keyof typeof entryMap> = import('astro/zod').infer<
-		Required<ContentConfig['collections'][C]>['schema']
+		ReturnTypeOrOriginal<Required<ContentConfig['collections'][C]>['schema']>
 	>;
 
 	const entryMap: {
@@ -102,9 +117,9 @@ declare module 'astro:content' {
   collection: "pages",
   data: InferEntrySchema<"pages">
 } & { render(): Render[".mdoc"] },
-"en/about.mdoc": {
-  id: "en/about.mdoc",
-  slug: "en/about",
+"en/about-me.mdoc": {
+  id: "en/about-me.mdoc",
+  slug: "en/about-me",
   body: string,
   collection: "pages",
   data: InferEntrySchema<"pages">
@@ -130,9 +145,9 @@ declare module 'astro:content' {
   collection: "pages",
   data: InferEntrySchema<"pages">
 } & { render(): Render[".mdoc"] },
-"es/about.mdoc": {
-  id: "es/about.mdoc",
-  slug: "es/about",
+"es/about-me.mdoc": {
+  id: "es/about-me.mdoc",
+  slug: "es/about-me",
   body: string,
   collection: "pages",
   data: InferEntrySchema<"pages">
@@ -158,9 +173,9 @@ declare module 'astro:content' {
   collection: "pages",
   data: InferEntrySchema<"pages">
 } & { render(): Render[".mdoc"] },
-"ja/about.mdoc": {
-  id: "ja/about.mdoc",
-  slug: "ja/about",
+"ja/about-me.mdoc": {
+  id: "ja/about-me.mdoc",
+  slug: "ja/about-me",
   body: string,
   collection: "pages",
   data: InferEntrySchema<"pages">
@@ -186,9 +201,9 @@ declare module 'astro:content' {
   collection: "pages",
   data: InferEntrySchema<"pages">
 } & { render(): Render[".mdoc"] },
-"pl/about.mdoc": {
-  id: "pl/about.mdoc",
-  slug: "pl/about",
+"pl/about-me.mdoc": {
+  id: "pl/about-me.mdoc",
+  slug: "pl/about-me",
   body: string,
   collection: "pages",
   data: InferEntrySchema<"pages">

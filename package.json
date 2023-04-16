@@ -18,8 +18,8 @@
     "typescript": "5.0.2"
   },
   "dependencies": {
-    "@astrojs/markdoc": "0.1.0",
-    "astro": "2.1.9",
+    "@astrojs/markdoc": "0.1.1",
+    "astro": "2.3.0",
     "astro-icon": "0.8.0",
     "clsx": "1.2.1",
     "dedent": "0.7.0",
