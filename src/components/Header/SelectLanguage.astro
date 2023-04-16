@@ -43,7 +43,7 @@ const currentLang = getLangFromContext(Astro);
   );
 
   if (!selectLanguage) {
-    throw new Error('Could  not find selectLanguage element');
+    throw new Error('[data-js-ref="select-language"] not found');
   }
 
   selectLanguage.onchange = () => {

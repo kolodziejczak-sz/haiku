@@ -11,7 +11,11 @@ body {
 }
 
 main {
-  margin-block: var(--space-l) var(--space-xl);
+  margin-block: var(--space-s) var(--space-m);
+
+  @include desktop {
+    margin-block: var(--space-l) var(--space-xl);
+  }
 }
 
 select {
@@ -46,7 +50,7 @@ h4,
 h5,
 h6 {
   font-weight: 400;
-  margin-block-end: var(--space-m);
+  margin-block-end: var(--space-s);
   margin-block-start: 0;
 }
 

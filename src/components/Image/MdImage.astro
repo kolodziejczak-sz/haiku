@@ -1,0 +1,18 @@
+---
+import Image from '@/components/Image/Image.astro';
+import { getImageMetadata } from './getImageMetadata';
+
+export interface Props {
+  src: string;
+  alt: string;
+  title?: string;
+}
+
+const { src, alt, title } = Astro.props;
+const [_, assetRelativePath] = src.split('assets');
+const assetFullName = assetRelativePath.slice(1);
+
+const imageMetadata = getImageMetadata(assetFullName);
+
+---
+<Image asset={imageMetadata} title={title} alt={alt} />

@@ -1,6 +1,10 @@
 .container {
-  margin-inline: auto;
-  width: min(100% - var(--space-3xl), 1200px);
+  margin-inline: var(--space-s);
+
+  @include desktop {
+    margin-inline: auto;
+    width: min(100% - var(--space-3xl), 1200px);
+  }
 }
 
 .text-container {
@@ -23,12 +27,6 @@
 // .no-js .js-only {
 //   visibility: hidden;
 // }
-
-.image {
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  width: 100%;
-}
 
 .hoverable {
   color: var(--text-600);

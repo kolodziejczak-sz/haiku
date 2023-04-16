@@ -34,7 +34,7 @@ const t = useTranslation(Astro);
   );
 
   if (!button) {
-    throw new Error('Could  not find selectLanguage element');
+    throw new Error('[data-js-ref="theme-button"] not found');
   }
 
   const themeVar = getComputedStyle(root).getPropertyValue('--theme').trim();

@@ -1,0 +1,70 @@
+---
+import { ImageMetadata } from 'astro'
+import { getImage } from 'astro:assets'
+
+export interface Props {
+  asset: ImageMetadata;
+  type?: 'inline' | 'block';
+  title?: string;
+  alt: string;
+  class?: string;
+}
+
+const config = {
+  desktop: {
+    media: '(min-width: 50em)',
+    block: 1200,
+    inline: 512,
+  },
+  mobile: {
+    media: '(max-width: 50em)',
+    block: 700,
+    inline: 328,
+  }
+} as const;
+
+const { asset, alt, type = 'block', title, class: className } = Astro.props;
+const { width, height } = asset;
+const aspectRatio = width / height;
+
+const desktopWidth = Math.min(width, config.desktop[type]);
+const desktopHeight = desktopWidth / aspectRatio;
+
+const mobileWidth = Math.min(width, config.mobile[type]);
+const mobileHeight = mobileWidth / aspectRatio;
+
+const [desktopImage, mobileImage] = await Promise.all(
+  [
+    [desktopWidth, desktopHeight],
+    [mobileWidth, mobileHeight]
+  ]
+    .map(([width, height]) => getImage({
+      src: asset,
+      width,
+      height,
+      format: asset.format
+    }))
+);
+
+---
+<picture title={title} >
+  <source
+    media={config.mobile.media}
+    width={mobileImage.attributes.width}
+    height={mobileImage.attributes.height}
+    srcset={mobileImage.src}
+  />
+  <source
+    media={config.desktop.media}
+    width={desktopImage.attributes.width}
+    height={desktopImage.attributes.height}
+    srcset={desktopImage.src}
+  />
+  <img
+    class={className}
+    src={desktopImage.src}
+    width={desktopImage.attributes.width}
+    height={desktopImage.attributes.height}
+    alt={alt}
+  />
+</picture>

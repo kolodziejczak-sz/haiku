@@ -28,9 +28,6 @@ const pageLang = getLangFromContext(Astro);
   <meta name="color-scheme" content="dark light" />
   <title>{pageTitle}</title>
   <link rel="shortcut icon" href="/logo.svg" type="image/svg+xml">
-</head>
-
-<body>
   <script is:inline>
     const rootClass = document.documentElement.classList;
     rootClass.remove('no-js');
@@ -43,6 +40,8 @@ const pageLang = getLangFromContext(Astro);
       rootClass.toggle('light', !prefersDarkTheme);
     }
   </script>
+</head>
+<body>
   <slot />
 </body>
 

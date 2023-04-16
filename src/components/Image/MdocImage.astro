@@ -1,0 +1,30 @@
+---
+import clsx from 'clsx';
+import Image from '@/components/Image/Image.astro';
+import { getImageMetadata } from './getImageMetadata';
+
+export interface Props {
+  asset: string;
+  alt: string;
+  direction?: 'left' | 'right';
+}
+
+const { asset, alt, title, direction } = Astro.props;
+const imageMetadata = getImageMetadata(asset);
+
+const type = direction ? 'inline' : 'block';
+const isInline = type === 'inline';
+const isBlock = type === 'block';
+const isLeftDirection = direction === 'left';
+const isRightDirection = direction === 'right';
+
+---
+<figure class={clsx('image', {
+  'image--block': isBlock,
+  'image--inline': isInline,
+  'image--right': isRightDirection || (!isLeftDirection && isInline),
+  'image--left': isLeftDirection,
+})}>
+  <Image class="image__asset" asset={imageMetadata} title={title} type={type} alt={alt} />
+  <figcaption class="image__figcaption"><slot /></figcaption>
+</figure>
