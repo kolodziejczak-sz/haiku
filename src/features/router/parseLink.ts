@@ -1,7 +1,4 @@
-import { AstroGlobal } from 'astro';
-import { getLangFromContext } from '@/features/i18n/getLangFromContext';
-
-export const parseLink = (context: AstroGlobal, url: string, lang?: string) => {
+export const parseLink = (url: string, lang?: string) => {
   const isEmail = url.startsWith('mailto');
   const isExternal = url.startsWith('http');
   const isHash = url.startsWith('#');
@@ -10,12 +7,15 @@ export const parseLink = (context: AstroGlobal, url: string, lang?: string) => {
     return url;
   }
 
-  const targetLang = lang || getLangFromContext(context);
+  if (!lang) {
+    throw new Error('local link needs lang param');
+  }
+
   const path = url.startsWith('/') ? url.slice(1) : url;
 
   if (!path) {
-    return `/${targetLang}`;
+    return `/${lang}`;
   }
 
-  return `/${targetLang}/${path}`;
+  return `/${lang}/${path}`;
 };

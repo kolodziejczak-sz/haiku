@@ -1,4 +1,5 @@
 ---
+import { getLangFromContext } from '@/features/i18n/getLangFromContext';
 import { parseLink } from '@/features/router/parseLink';
 
 export interface Props {
@@ -8,10 +9,19 @@ export interface Props {
 }
 
 const { to, lang, children, ...restProps } = Astro.props;
-const url = parseLink(Astro, to, lang);
+
+const currentLanguage = getLangFromContext(Astro)
+const url = parseLink(to, lang || currentLanguage);
 const isExternal = url.startsWith('http');
+const isDifferentLanguageLink = (lang && lang !== currentLanguage);
 
 ---
-<a {...restProps} href={url} target={isExternal ? '_blank' : undefined}>
+<a
+  {...restProps}
+  href={url}
+  hreflang={isDifferentLanguageLink ? lang : undefined}
+  target={isExternal ? '_blank' : undefined}
+  rel={isExternal ? 'nofollow noopener noreferrer' : undefined}
+>
   <slot />
 </a>

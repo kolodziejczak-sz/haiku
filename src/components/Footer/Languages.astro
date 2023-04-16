@@ -15,7 +15,13 @@ const slug = getSlugFromContext(Astro);
   <ul class="footer__list" role="list">
     {Object.entries(supportedLanguages).map(([key, name]) => (
       <li lang={key}>
-        <Link class="link-btn hoverable" to={'/' + slug} lang={key}>{name}</Link>
+        <Link
+          class="link-btn hoverable"
+          to={'/' + slug}
+          lang={key}
+          >
+            {name}
+          </Link>
       </li>
     ))}
   </ul>
