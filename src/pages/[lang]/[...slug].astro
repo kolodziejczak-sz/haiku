@@ -8,10 +8,10 @@ export const getStaticPaths = async () => {
 
   return allPages.map(entry => {
     const [lang, fileName] = entry.slug.split('/');
-    console.log({ entry, lang, fileName });
+    const slug = fileName || undefined;
 
     return {
-      params: { lang, slug: fileName },
+      params: { lang, slug },
       props: { entry, lang }
     }
   })
@@ -22,6 +22,5 @@ const { Content } = await entry.render();
 
 ---
 <BaseLayout title={entry.data.title} class="container">
-  <h1>{entry.data.title}</h1>
   <Content />
 </BaseLayout>
