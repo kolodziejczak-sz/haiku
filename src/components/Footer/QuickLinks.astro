@@ -1,5 +1,4 @@
 ---
-import clsx from 'clsx';
 import { useTranslation } from '@/features/i18n/useTranslation';
 import { getSlugFromContext } from '@/features/router/getSlugFromContext';
 import Link from '@/components/Link.astro';
@@ -9,7 +8,6 @@ export interface Props {
 }
 
 const t = useTranslation(Astro);
-const slug = getSlugFromContext(Astro);
 const { class: className } = Astro.props;
 
 const navList = [
@@ -18,20 +16,14 @@ const navList = [
   { to: '/about-me', text: t`Components.aboutMe` },
 ];
 ---
-
-<nav aria-label={t`Components.main`} class={clsx(className, 'nav')}>
-  <ul class="nav__list" role="list">
+<nav aria-label={t`Components.main`}>
+  <ul role="list" class={className}>
     {navList.map(({ to, text }) => {
-      const isActive = to.slice(1) === slug;
-      const className = clsx(
-        'hoverable', 'link-btn', { 'link-btn--active': isActive }
-      );
-
       return (
         <li>
-          <Link class={className} to={to}>{text}</Link>
+          <Link class="link-btn hoverable" to={to}>{text}</Link>
         </li>
       );
     })}
   </ul>
-</nav>  
+</nav> 

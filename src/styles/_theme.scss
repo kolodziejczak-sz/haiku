@@ -8,6 +8,7 @@ body {
   font-size: var(--fs-0);
   grid-template-rows: auto 1fr auto;
   // transition: background-color 250ms ease-out;
+  scroll-behavior: smooth;
 }
 
 main {

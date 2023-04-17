@@ -1,5 +1,4 @@
 ---
-import { useTranslation } from '@/features/i18n/useTranslation';
 import Link from '@/components/Link.astro';
 import Icon from '@/components/Icon.astro';
 
@@ -8,7 +7,6 @@ export interface Props {
 };
 
 const { class: className } = Astro.props;
-const t = useTranslation(Astro);
 
 ---
 <ul class={className} role="list">

@@ -1,6 +1,7 @@
 ---
 import clsx from 'clsx';
 import { useTranslation } from '@/features/i18n/useTranslation';
+import QuickLinks from '@/components/Footer/QuickLinks.astro';
 import Contact from '@/components/Footer/Contact.astro';
 import Languages from '@/components/Footer/Languages.astro';
 import Link from '@/components/Link.astro';
@@ -17,7 +18,11 @@ const currentYear = new Date().getFullYear();
 
 <footer class={clsx(className, 'footer')}>
   <div class="container footer__content">
-    <section class="footer__languages">
+    <section>
+      <h2 class="footer__title">{t`Components.quickLinks`}</h2>
+      <QuickLinks class="footer__list" />
+    </section>
+    <section>
       <h2 class="footer__title">{t`Components.language`}</h2>
       <Languages class="footer__list" />
     </section>
@@ -26,9 +31,9 @@ const currentYear = new Date().getFullYear();
       <Contact class="footer__list" />
     </section>
     <div class="footer__bottom">
-      <p class="footer__copyright">
+      <span class="footer__copyright">
         © {currentYear}, <Link to='https://github.com/kolodziejczak-sz'>snkj</Link>
-      </p>
+      </span>
       <Link class="footer__go-top" to="#top-of-site">
         {t`Components.backToMainContent`}
       </Link>

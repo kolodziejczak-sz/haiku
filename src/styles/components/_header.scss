@@ -36,8 +36,3 @@
   grid-auto-flow: column;
 }
 
-.header__nav {
-  grid-row: 2;
-  grid-column: 1 / -1;
-  margin-block-start: var(--space-2xs);
-}

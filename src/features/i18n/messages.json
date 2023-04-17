@@ -14,7 +14,8 @@
       "skipToMainContent": "Skip to main content",
       "turnOnDarkTheme": "Turn on dark theme",
       "main": "Main",
-      "menu": "Menu"
+      "menu": "Menu",
+      "quickLinks": "Quick links"
     }
   },
   "pl": {
@@ -32,7 +33,8 @@
       "skipToMainContent": "Przejdź do głównej treści",
       "turnOnDarkTheme": "Włącz ciemny motyw",
       "main": "Główne",
-      "menu": "Menu"
+      "menu": "Menu",
+      "quickLinks": "Strony"
     }
   },
   "ja": {
@@ -50,7 +52,8 @@
       "skipToMainContent": "Przejdź do głównej treści",
       "turnOnDarkTheme": "Włącz ciemny motyw",
       "main": "Główne",
-      "menu": "Menu"
+      "menu": "Menu",
+      "quickLinks": "Quick links"
     }
   },
   "es": {
@@ -68,7 +71,8 @@
       "skipToMainContent": "Ir al contenido principal",
       "turnOnDarkTheme": "Seleccione un motivo oscuro",
       "main": "Principal",
-      "menu": "Menu"
+      "menu": "Menu",
+      "quickLinks": "Quick links"
     }
   }
 }
