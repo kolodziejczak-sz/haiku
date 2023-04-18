@@ -27,8 +27,8 @@ const shouldRenderLink = !hasContent;
 {shouldRenderLink ? (
   <sup><a id={refId} href={`#${itemId}`} aria-describedby="footnotes__label">[{entryNumber}]</a></sup>
 ) : (
-  <li class="footnotes__item" id={itemId}>
+  <li id={itemId}>
     <Fragment set:html={content} />
-    <a class="footnotes__backref" href={`#${refId}`} aria-label={t('footnoteBack')}>↩</a>
+    <a href={`#${refId}`} aria-label={t('footnoteBack')}>↩</a>
   </li>
 )}

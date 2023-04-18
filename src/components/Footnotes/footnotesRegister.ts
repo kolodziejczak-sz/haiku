@@ -19,7 +19,6 @@ export const registerFootnote = (pageId: string, entry: RegisterEntry): number =
   const pageEntries = register[pageId];
   const pageEntryIndex = pageEntries.findIndex(({ id }) => id === entry.id);
   const pageEntry = pageEntries[pageEntryIndex];
-  console.log(register);
 
   if (pageEntry) {
     pageEntry.content = pageEntry.content || entry.content;
