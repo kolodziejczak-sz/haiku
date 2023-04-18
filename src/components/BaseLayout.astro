@@ -4,11 +4,13 @@ import Header from '@/components/Header/Header.astro'
 import Footer from '@/components/Footer/Footer.astro'
 
 export interface Props {
-  class?: string;
-  title: string;
+  frontmatter: {
+    class?: string;
+    title: string;
+  }
 };
 
-const { title, class: className } = Astro.props;
+const { title, class: className } = Astro.props.frontmatter;
 
 ---
 <RawLayout title={title}>

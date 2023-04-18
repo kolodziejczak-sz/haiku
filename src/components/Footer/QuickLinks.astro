@@ -11,17 +11,17 @@ const t = useTranslation(Astro);
 const { class: className } = Astro.props;
 
 const navList = [
-  { to: '/', text: t`Components.home` },
-  { to: '/intro', text: t`Components.intro` },
-  { to: '/about-me', text: t`Components.aboutMe` },
+  { href: '/', text: t`Components.home` },
+  { href: '/intro', text: t`Components.intro` },
+  { href: '/about-me', text: t`Components.aboutMe` },
 ];
 ---
 <nav aria-label={t`Components.main`}>
   <ul role="list" class={className}>
-    {navList.map(({ to, text }) => {
+    {navList.map(({ href, text }) => {
       return (
         <li>
-          <Link class="link-btn hoverable" to={to}>{text}</Link>
+          <Link class="link-btn hoverable" href={href}>{text}</Link>
         </li>
       );
     })}

@@ -1,7 +1,9 @@
 declare module 'astro:content' {
 	interface Render {
-		'.mdoc': Promise<{
-			Content(props: Record<string, any>): import('astro').MarkdownInstance<{}>['Content'];
+		'.mdx': Promise<{
+			Content: import('astro').MarkdownInstance<{}>['Content'];
+			headings: import('astro').MarkdownHeading[];
+			remarkPluginFrontmatter: Record<string, any>;
 		}>;
 	}
 }
@@ -110,118 +112,125 @@ declare module 'astro:content' {
 
 	const entryMap: {
 		"pages": {
-"en/404.mdoc": {
-  id: "en/404.mdoc",
+"en/404.mdx": {
+  id: "en/404.mdx",
   slug: "en/404",
   body: string,
   collection: "pages",
   data: InferEntrySchema<"pages">
-} & { render(): Render[".mdoc"] },
-"en/about-me.mdoc": {
-  id: "en/about-me.mdoc",
+} & { render(): Render[".mdx"] },
+"en/about-me.mdx": {
+  id: "en/about-me.mdx",
   slug: "en/about-me",
   body: string,
   collection: "pages",
   data: InferEntrySchema<"pages">
-} & { render(): Render[".mdoc"] },
-"en/index.mdoc": {
-  id: "en/index.mdoc",
+} & { render(): Render[".mdx"] },
+"en/index.mdx": {
+  id: "en/index.mdx",
   slug: "en",
   body: string,
   collection: "pages",
   data: InferEntrySchema<"pages">
-} & { render(): Render[".mdoc"] },
-"en/intro.mdoc": {
-  id: "en/intro.mdoc",
+} & { render(): Render[".mdx"] },
+"en/intro.mdx": {
+  id: "en/intro.mdx",
   slug: "en/intro",
   body: string,
   collection: "pages",
   data: InferEntrySchema<"pages">
-} & { render(): Render[".mdoc"] },
-"es/404.mdoc": {
-  id: "es/404.mdoc",
+} & { render(): Render[".mdx"] },
+"en/poem.mdx": {
+  id: "en/poem.mdx",
+  slug: "en/poem",
+  body: string,
+  collection: "pages",
+  data: InferEntrySchema<"pages">
+} & { render(): Render[".mdx"] },
+"es/404.mdx": {
+  id: "es/404.mdx",
   slug: "es/404",
   body: string,
   collection: "pages",
   data: InferEntrySchema<"pages">
-} & { render(): Render[".mdoc"] },
-"es/about-me.mdoc": {
-  id: "es/about-me.mdoc",
+} & { render(): Render[".mdx"] },
+"es/about-me.mdx": {
+  id: "es/about-me.mdx",
   slug: "es/about-me",
   body: string,
   collection: "pages",
   data: InferEntrySchema<"pages">
-} & { render(): Render[".mdoc"] },
-"es/index.mdoc": {
-  id: "es/index.mdoc",
+} & { render(): Render[".mdx"] },
+"es/index.mdx": {
+  id: "es/index.mdx",
   slug: "es",
   body: string,
   collection: "pages",
   data: InferEntrySchema<"pages">
-} & { render(): Render[".mdoc"] },
-"es/intro.mdoc": {
-  id: "es/intro.mdoc",
+} & { render(): Render[".mdx"] },
+"es/intro.mdx": {
+  id: "es/intro.mdx",
   slug: "es/intro",
   body: string,
   collection: "pages",
   data: InferEntrySchema<"pages">
-} & { render(): Render[".mdoc"] },
-"ja/404.mdoc": {
-  id: "ja/404.mdoc",
+} & { render(): Render[".mdx"] },
+"ja/404.mdx": {
+  id: "ja/404.mdx",
   slug: "ja/404",
   body: string,
   collection: "pages",
   data: InferEntrySchema<"pages">
-} & { render(): Render[".mdoc"] },
-"ja/about-me.mdoc": {
-  id: "ja/about-me.mdoc",
+} & { render(): Render[".mdx"] },
+"ja/about-me.mdx": {
+  id: "ja/about-me.mdx",
   slug: "ja/about-me",
   body: string,
   collection: "pages",
   data: InferEntrySchema<"pages">
-} & { render(): Render[".mdoc"] },
-"ja/index.mdoc": {
-  id: "ja/index.mdoc",
+} & { render(): Render[".mdx"] },
+"ja/index.mdx": {
+  id: "ja/index.mdx",
   slug: "ja",
   body: string,
   collection: "pages",
   data: InferEntrySchema<"pages">
-} & { render(): Render[".mdoc"] },
-"ja/intro.mdoc": {
-  id: "ja/intro.mdoc",
+} & { render(): Render[".mdx"] },
+"ja/intro.mdx": {
+  id: "ja/intro.mdx",
   slug: "ja/intro",
   body: string,
   collection: "pages",
   data: InferEntrySchema<"pages">
-} & { render(): Render[".mdoc"] },
-"pl/404.mdoc": {
-  id: "pl/404.mdoc",
+} & { render(): Render[".mdx"] },
+"pl/404.mdx": {
+  id: "pl/404.mdx",
   slug: "pl/404",
   body: string,
   collection: "pages",
   data: InferEntrySchema<"pages">
-} & { render(): Render[".mdoc"] },
-"pl/about-me.mdoc": {
-  id: "pl/about-me.mdoc",
+} & { render(): Render[".mdx"] },
+"pl/about-me.mdx": {
+  id: "pl/about-me.mdx",
   slug: "pl/about-me",
   body: string,
   collection: "pages",
   data: InferEntrySchema<"pages">
-} & { render(): Render[".mdoc"] },
-"pl/index.mdoc": {
-  id: "pl/index.mdoc",
+} & { render(): Render[".mdx"] },
+"pl/index.mdx": {
+  id: "pl/index.mdx",
   slug: "pl",
   body: string,
   collection: "pages",
   data: InferEntrySchema<"pages">
-} & { render(): Render[".mdoc"] },
-"pl/intro.mdoc": {
-  id: "pl/intro.mdoc",
+} & { render(): Render[".mdx"] },
+"pl/intro.mdx": {
+  id: "pl/intro.mdx",
   slug: "pl/intro",
   body: string,
   collection: "pages",
   data: InferEntrySchema<"pages">
-} & { render(): Render[".mdoc"] },
+} & { render(): Render[".mdx"] },
 },
 
 	};

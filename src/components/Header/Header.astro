@@ -15,11 +15,11 @@ const { class: className } = Astro.props;
 
 ---
 <header class={clsx(className, 'header')}>
-  <Link to="#main-content" class="header__skip link-btn hoverable">
+  <Link href="#main-content" class="header__skip link-btn hoverable">
     {t`Components.skipToMainContent`}
   </Link>
 
-  <Link to='/' class="link-btn hoverable">
+  <Link href='/' class="link-btn hoverable">
     <span>{t`projectName`}</span>
     <Logo class="header__logo" />
   </Link>

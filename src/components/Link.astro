@@ -3,15 +3,17 @@ import { getLangFromContext } from '@/features/i18n/getLangFromContext';
 import { parseLink } from '@/features/router/parseLink';
 
 export interface Props {
-  to: string;
+  href: string;
   lang?: string;
   [key: string]: any;
 }
 
-const { to, lang, children, ...restProps } = Astro.props;
+console.log(Astro.props)
+
+const { href, lang, children, ...restProps } = Astro.props;
 
 const currentLanguage = getLangFromContext(Astro)
-const url = parseLink(to, lang || currentLanguage);
+const url = parseLink(href, lang || currentLanguage);
 const isExternal = url.startsWith('http');
 const isDifferentLanguageLink = (lang && lang !== currentLanguage);
 

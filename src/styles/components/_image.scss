@@ -36,12 +36,12 @@
 @include desktop {
   .image--right {
     padding-inline-start: var(--space-m);
-    float: inline-end;
+    float: right;
   }
 
   .image--left {
     padding-inline-end: var(--space-m);
-    float: inline-start;
+    float: left;
   }
 
   .image--inline {
