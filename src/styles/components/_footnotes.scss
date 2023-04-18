@@ -1,0 +1,20 @@
+.footnotes {
+  color: var(--text-600);
+  font-size: var(--fs--1);
+  position: relative;
+  margin-block-start: var(--space-2xs);
+  padding-block-start: var(--space-2xs);
+
+  &::before {
+    background: var(--bg-400);
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 2px;
+    width: 30%;
+  }
+}
+
+.footnotes__list {
+  padding-inline-start: 1em;
+}

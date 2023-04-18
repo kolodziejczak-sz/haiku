@@ -84,3 +84,39 @@ h6 {
   font-size: var(--fs-1);
   line-height: 1.4;
 }
+
+.container {
+  margin-inline: var(--space-m);
+
+  @include desktop {
+    margin-inline: auto;
+    width: min(100% - var(--space-3xl), 900px);
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.no-js .js-only {
+  visibility: hidden;
+}
+
+.hoverable {
+  color: var(--text-600);
+  cursor: pointer;
+}
+
+.hoverable:hover,
+.hoverable:focus,
+.hoverable:focus-within {
+  color: var(--text-900);
+}

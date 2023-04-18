@@ -3,7 +3,9 @@ import { getCollection, CollectionEntry } from 'astro:content';
 import MdImage from '@/components/Image/MdImage.astro';
 import MdxImage from '@/components/Image/MdxImage.astro';
 import Link from '@/components/Link.astro';
-
+import Poem from '@/components/Poem.astro';
+import Footnote from '@/components/Footnotes/Footnote.astro';
+import Footnotes from '@/components/Footnotes/Footnotes.astro';
 
 export const getStaticPaths = async () => {
   const allPages = await getCollection('pages');
@@ -24,7 +26,10 @@ const { Content } = await entry.render();
 const components = {
   a: Link,
   img: MdImage,
-  Image: MdxImage
+  Image: MdxImage,
+  Poem: Poem,
+  Footnote,
+  Footnotes,
 }
 
 ---

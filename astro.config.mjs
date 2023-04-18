@@ -4,7 +4,11 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   experimental: {
-    assets: true
+    assets: true,
+  },
+  markdown: {
+    syntaxHighlight: false,
+    gfm: false,
   },
   integrations: [mdx()]
 });

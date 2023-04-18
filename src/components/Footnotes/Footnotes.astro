@@ -1,0 +1,21 @@
+---
+import { useTranslation } from '@/features/i18n/useTranslation';
+import { clearPageEntries, getPageEntries } from './footnotesRegister';
+
+const t = useTranslation(Astro);
+const pageId = Astro.url.pathname;
+
+clearPageEntries(pageId);
+
+const content = await Astro.slots.render('default');
+
+const pageEntries = getPageEntries(pageId);
+---
+{!pageEntries || pageEntries.length === 0 ? null : (
+  <section class="footnotes">
+    <h2 id="footnotes__label" class="sr-only">{t('footnotes')}</h2>
+    <ol class="footnotes__list" role="list">
+      <Fragment set:html={content} />
+    </ol>
+  </section>
+)}

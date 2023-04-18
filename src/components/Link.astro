@@ -8,8 +8,6 @@ export interface Props {
   [key: string]: any;
 }
 
-console.log(Astro.props)
-
 const { href, lang, children, ...restProps } = Astro.props;
 
 const currentLanguage = getLangFromContext(Astro)
