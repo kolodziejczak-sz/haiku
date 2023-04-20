@@ -1,5 +1,8 @@
 ---
 import clsx from 'clsx';
+import { getCollection } from 'astro:content';
+import { isDefined } from '@/features/utils/isDefined';
+import { getSlugFromContext } from '@/features/router/getSlugFromContext';
 import { getLangFromContext } from '@/features/i18n/getLangFromContext';
 import { supportedLanguages } from '@/features/i18n/supportedLanguages';
 import { useTranslation } from '@/features/i18n/useTranslation';
@@ -12,6 +15,24 @@ export interface Props {
 const { class: className } = Astro.props;
 const t = useTranslation(Astro);
 const currentLang = getLangFromContext(Astro);
+const slug = getSlugFromContext(Astro);
+
+let missingTranslations: string[] = [];
+
+if (slug.includes('poem')) {
+  const allPoems = await getCollection('poems');
+  const [_, poemName] = slug.split('/');
+
+  const hasTranslationForPoem = (targetLang: string) => {
+    const targetSlug = targetLang + '/' + poemName;
+  
+    return allPoems.some((poem) => poem.slug === targetSlug);
+  };
+
+  missingTranslations = Object.keys(supportedLanguages)
+    .map(lang => hasTranslationForPoem(lang) ? undefined : lang)
+    .filter(isDefined);
+}
 ---
 
 <div class={clsx(className, 'select-language hoverable')}>
@@ -20,6 +41,9 @@ const currentLang = getLangFromContext(Astro);
     aria-label={t`Components.selectLanguage`}
     class="select-language__input"
     data-js-ref="select-language"
+    data-js-missing-translations={
+      JSON.stringify(missingTranslations)
+    }
   >
     {Object.entries(supportedLanguages).map(([key, name]) => {
       const isSelected = currentLang === key;
@@ -45,11 +69,16 @@ const currentLang = getLangFromContext(Astro);
   if (!selectLanguage) {
     throw new Error('[data-js-ref="select-language"] not found');
   }
+  const missingTranslations = JSON.parse(
+    selectLanguage.dataset.jsMissingTranslations!
+  );
 
   selectLanguage.onchange = () => {
     const nextLang = selectLanguage.value;
     const pathArray = location.pathname.split('/').slice(2);
-    const slug = pathArray.join('/');
+    const slug = missingTranslations.includes(nextLang)
+      ? ''
+      : pathArray.join('/');
 
     location.pathname = `/${nextLang}/${slug}`;
   };

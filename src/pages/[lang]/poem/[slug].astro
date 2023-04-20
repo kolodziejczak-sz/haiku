@@ -17,10 +17,10 @@ export const getStaticPaths = async () => {
 
   return allPages.map(entry => {
     const [lang, fileName] = entry.slug.split('/');
-    const name = fileName || undefined;
+    const slug = fileName || undefined;
 
     return {
-      params: { lang, name },
+      params: { lang, slug },
       props: { entry, lang }
     }
   })

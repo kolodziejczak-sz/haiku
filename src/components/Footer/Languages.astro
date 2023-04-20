@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import { supportedLanguages } from '@/features/i18n/supportedLanguages';
 import { getSlugFromContext } from '@/features/router/getSlugFromContext';
 import Link from '@/components/Link.astro';
@@ -10,17 +11,36 @@ export interface Props {
 const { class: className } = Astro.props;
 const slug = getSlugFromContext(Astro);
 
+let hasTranslationForPoem = (_: string) => true;
+
+if (slug.includes('poem')) {
+  const allPoems = await getCollection('poems');
+  const [_, poemName] = slug.split('/');
+
+  hasTranslationForPoem = (lang: string) => {
+    const targetSlug = lang + '/' + poemName;
+  
+    return allPoems.some((poem) => poem.slug === targetSlug);
+  };
+}
+
 ---
 <ul class={className} role="list">
-  {Object.entries(supportedLanguages).map(([key, name]) => (
-    <li lang={key}>
-      <Link
-        class="link-btn hoverable"
-        href={'/' + slug}
-        lang={key}
-        >
-          {name}
-        </Link>
-    </li>
-  ))}
+  {Object.entries(supportedLanguages).map(([lang, name]) => {
+    const href = hasTranslationForPoem(lang)
+      ? `/${slug}`
+      : '/';
+
+    return (
+      <li lang={lang}>
+        <Link
+          class="link-btn hoverable"
+          href={href}
+          hreflang={lang}
+          >
+            {name}
+          </Link>
+      </li>
+    );
+  })}
 </ul>
