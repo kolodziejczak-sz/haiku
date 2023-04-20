@@ -5,12 +5,17 @@ import '@/styles/index.scss';
 
 export interface Props {
   title: string;
+  description?: string;
 };
 
 const t = useTranslation(Astro);
-
-const { title } = Astro.props;
 const defaultPageTitle = t('projectName');
+const defaultDescription = t('projectDescription');
+
+const {
+  title,
+  description = defaultDescription,
+ } = Astro.props;
 
 const pageTitle = [title, defaultPageTitle]
   .filter(Boolean)
@@ -24,9 +29,13 @@ const pageLang = getLangFromContext(Astro);
 
 <head>
   <meta charset="utf-8" />
+  <title>{pageTitle}</title>
+
   <meta name="viewport" content="width=device-width" />
   <meta name="color-scheme" content="dark light" />
-  <title>{pageTitle}</title>
+  <meta name="author" content="Remilia">
+  <meta name="description" content={description} />
+
   <link rel="shortcut icon" href="/logo.svg" type="image/svg+xml">
   <script is:inline>
     const rootClass = document.documentElement.classList;

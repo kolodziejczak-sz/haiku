@@ -2,6 +2,7 @@
   "en": {
     "content": "Content",
     "projectName": "Project Haiku",
+    "projectDescription": "Remilia's personal haiku collection. Discover fine art in its simplicity.",
     "Components": {
       "aboutMe": "About me",
       "backToMainContent": "Back to top",
@@ -12,17 +13,18 @@
       "introduction": "Introduction",
       "language": "Language",
       "logoDescription": "The site logo: the sun behind a mountain",
+      "main": "Main",
+      "menu": "Menu",
       "selectLanguage": "Select language",
       "skipToMainContent": "Skip to main content",
       "turnOnDarkTheme": "Turn on dark theme",
-      "main": "Main",
-      "menu": "Menu",
       "quickLinks": "Quick links"
     }
   },
   "pl": {
     "content": "Treść",
     "projectName": "Projekt Haiku",
+    "projectDescription": "Kolekcja haiku Remili. Odkryj sztukę piękną w swojej prostocie.",
     "Components": {
       "aboutMe": "O mnie",
       "backToMainContent": "Wróć na początek",
@@ -33,17 +35,18 @@
       "introduction": "Wstęp",
       "language": "Język",
       "logoDescription": "Logo strony: słońce za górą",
+      "main": "Główne",
+      "menu": "Menu",
       "selectLanguage": "Wybierz język",
       "skipToMainContent": "Przejdź do głównej treści",
       "turnOnDarkTheme": "Włącz ciemny motyw",
-      "main": "Główne",
-      "menu": "Menu",
       "quickLinks": "Strony"
     }
   },
   "ja": {
     "content": "Treść",
     "projectName": "Projekt Haiku",
+    "projectDescription": "Remilia's personal haiku collection. Discover fine art in its simplicity.",
     "Components": {
       "aboutMe": "O mnie",
       "backToMainContent": "Wróć na początek",
@@ -54,17 +57,18 @@
       "introduction": "Wstęp",
       "language": "Język",
       "logoDescription": "Logo strony: słońce za górą",
+      "main": "Główne",
+      "menu": "Menu",
       "selectLanguage": "Wybierz język",
       "skipToMainContent": "Przejdź do głównej treści",
       "turnOnDarkTheme": "Włącz ciemny motyw",
-      "main": "Główne",
-      "menu": "Menu",
       "quickLinks": "Quick links"
     }
   },
   "es": {
     "content": "Contenido",
     "projectName": "Proyecto Haiku",
+    "projectDescription": "Remilia's personal haiku collection. Discover fine art in its simplicity.",
     "Components": {
       "aboutMe": "Sobre mí",
       "backToMainContent": "Volver al principio",
@@ -75,11 +79,11 @@
       "introduction": "Introduction",
       "language": "Lengua",
       "logoDescription": "Logo de la página: sol por detrás de la montaña",
+      "main": "Principal",
+      "menu": "Menu",
       "selectLanguage": "Seleccione el idioma",
       "skipToMainContent": "Ir al contenido principal",
       "turnOnDarkTheme": "Seleccione un motivo oscuro",
-      "main": "Principal",
-      "menu": "Menu",
       "quickLinks": "Quick links"
     }
   }

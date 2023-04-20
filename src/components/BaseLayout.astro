@@ -6,14 +6,15 @@ import Footer from '@/components/Footer/Footer.astro'
 export interface Props {
   frontmatter: {
     class?: string;
+    description?: string;
     title: string;
   }
 };
 
-const { title, class: className } = Astro.props.frontmatter;
+const { title, class: className, description } = Astro.props.frontmatter;
 
 ---
-<RawLayout title={title}>
+<RawLayout title={title} description={description}>
   <Header class="container" />
   <main id="main-content" class={className}>
     <slot />
