@@ -13,13 +13,13 @@ export interface Props {
 const config = {
   desktop: {
     media: '(min-width: 50em)',
-    block: 1200,
-    inline: 512,
+    block: 900,
+    inline: 410,
   },
   mobile: {
     media: '(max-width: 50em)',
-    block: 700,
-    inline: 328,
+    block: 800,
+    inline: 300,
   }
 } as const;
 
@@ -49,17 +49,18 @@ const [desktopImage, mobileImage] = await Promise.all(
 ---
 <picture title={title} >
   <source
-    media={config.mobile.media}
-    width={mobileImage.attributes.width}
-    height={mobileImage.attributes.height}
-    srcset={mobileImage.src}
-  />
-  <source
     media={config.desktop.media}
     width={desktopImage.attributes.width}
     height={desktopImage.attributes.height}
     srcset={desktopImage.src}
   />
+  <source
+    media={config.mobile.media}
+    width={mobileImage.attributes.width}
+    height={mobileImage.attributes.height}
+    srcset={mobileImage.src}
+  />
+
   <img
     class={className}
     src={desktopImage.src}

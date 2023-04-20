@@ -1,6 +1,5 @@
 export type RegisterEntry = {
   id: string;
-  content?: string;
 }
 
 const register: Record<string, RegisterEntry[]> = {};
@@ -21,8 +20,6 @@ export const registerFootnote = (pageId: string, entry: RegisterEntry): number =
   const pageEntry = pageEntries[pageEntryIndex];
 
   if (pageEntry) {
-    pageEntry.content = pageEntry.content || entry.content;
-
     return pageEntryIndex + 1;
   }
   

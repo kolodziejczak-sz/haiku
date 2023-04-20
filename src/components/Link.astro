@@ -22,6 +22,4 @@ const isDifferentLanguageLink = (lang && lang !== currentLanguage);
   hreflang={isDifferentLanguageLink ? lang : undefined}
   target={isExternal ? '_blank' : undefined}
   rel={isExternal ? 'nofollow noopener noreferrer' : undefined}
->
-  <slot />
-</a>
+><slot /></a>

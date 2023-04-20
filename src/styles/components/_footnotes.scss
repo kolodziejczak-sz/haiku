@@ -1,6 +1,12 @@
 .footnotes {
   color: var(--text-600);
+  clear: both;
   font-size: var(--fs--1);
+  margin-block: var(--space-xl) var(--space-m);
+
+  @include desktop {
+    margin-block-start: 0;
+  }
 
   &::before {
     background: var(--bg-400);

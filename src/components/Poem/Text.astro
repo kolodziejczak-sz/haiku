@@ -1,0 +1,17 @@
+---
+import { getLangFromContext } from '@/features/i18n/getLangFromContext';
+
+export interface Props {
+  lang?: string;
+}
+
+const { lang } = Astro.props;
+const currentLang = getLangFromContext(Astro);
+
+const shouldAppendLangAttr = currentLang !== lang;
+
+---
+<div
+  class="poem__text"
+  lang={shouldAppendLangAttr ? lang : undefined}
+><slot /></div>

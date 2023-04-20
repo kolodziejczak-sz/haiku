@@ -8,7 +8,6 @@ const pageId = Astro.url.pathname;
 clearPageEntries(pageId);
 
 const content = await Astro.slots.render('default');
-
 const pageEntries = getPageEntries(pageId);
 ---
 {!pageEntries || pageEntries.length === 0 ? null : (

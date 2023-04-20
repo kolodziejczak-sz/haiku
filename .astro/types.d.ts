@@ -133,16 +133,9 @@ declare module 'astro:content' {
   collection: "pages",
   data: InferEntrySchema<"pages">
 } & { render(): Render[".mdx"] },
-"en/intro.mdx": {
-  id: "en/intro.mdx",
-  slug: "en/intro",
-  body: string,
-  collection: "pages",
-  data: InferEntrySchema<"pages">
-} & { render(): Render[".mdx"] },
-"en/poem.mdx": {
-  id: "en/poem.mdx",
-  slug: "en/poem",
+"en/introduction.mdx": {
+  id: "en/introduction.mdx",
+  slug: "en/introduction",
   body: string,
   collection: "pages",
   data: InferEntrySchema<"pages">
@@ -168,9 +161,9 @@ declare module 'astro:content' {
   collection: "pages",
   data: InferEntrySchema<"pages">
 } & { render(): Render[".mdx"] },
-"es/intro.mdx": {
-  id: "es/intro.mdx",
-  slug: "es/intro",
+"es/introduction.mdx": {
+  id: "es/introduction.mdx",
+  slug: "es/introduction",
   body: string,
   collection: "pages",
   data: InferEntrySchema<"pages">
@@ -196,9 +189,9 @@ declare module 'astro:content' {
   collection: "pages",
   data: InferEntrySchema<"pages">
 } & { render(): Render[".mdx"] },
-"ja/intro.mdx": {
-  id: "ja/intro.mdx",
-  slug: "ja/intro",
+"ja/introduction.mdx": {
+  id: "ja/introduction.mdx",
+  slug: "ja/introduction",
   body: string,
   collection: "pages",
   data: InferEntrySchema<"pages">
@@ -224,12 +217,35 @@ declare module 'astro:content' {
   collection: "pages",
   data: InferEntrySchema<"pages">
 } & { render(): Render[".mdx"] },
-"pl/intro.mdx": {
-  id: "pl/intro.mdx",
-  slug: "pl/intro",
+"pl/introduction.mdx": {
+  id: "pl/introduction.mdx",
+  slug: "pl/introduction",
   body: string,
   collection: "pages",
   data: InferEntrySchema<"pages">
+} & { render(): Render[".mdx"] },
+},
+"poems": {
+"en/cup-of-tea.mdx": {
+  id: "en/cup-of-tea.mdx",
+  slug: "en/cup-of-tea",
+  body: string,
+  collection: "poems",
+  data: InferEntrySchema<"poems">
+} & { render(): Render[".mdx"] },
+"ja/cup-of-tea.mdx": {
+  id: "ja/cup-of-tea.mdx",
+  slug: "ja/cup-of-tea",
+  body: string,
+  collection: "poems",
+  data: InferEntrySchema<"poems">
+} & { render(): Render[".mdx"] },
+"pl/cup-of-tea.mdx": {
+  id: "pl/cup-of-tea.mdx",
+  slug: "pl/cup-of-tea",
+  body: string,
+  collection: "poems",
+  data: InferEntrySchema<"poems">
 } & { render(): Render[".mdx"] },
 },
 

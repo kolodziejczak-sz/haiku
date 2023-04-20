@@ -1,7 +1,7 @@
 .footer {
   background-color: var(--bg-400);
   color: var(--text-600);
-  font-size: var(--fs--2);
+  font-size: var(--fs--1);
   padding-block: var(--space-s);
 }
 
@@ -15,17 +15,13 @@
 
 .footer__title {
   font-weight: normal;
-  font-size: var(--fs--1);
+  font-size: var(--fs-0);
   margin-block-end: var(--space-2xs);
 }
 
 .footer__list {
   list-style: none;
   padding: 0;
-}
-
-.footer__copyright {
-  font-size: var(--fs--2);
 }
 
 .footer__bottom {

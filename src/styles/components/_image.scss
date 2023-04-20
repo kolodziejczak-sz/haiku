@@ -1,13 +1,40 @@
 .image {
-  picture {
-    display: contents;
-  }
-
-  margin-block: var(--space-m);
+  margin-block: var(--space-s);
+  position: relative;
 
   @include desktop {
     margin-block: 0;
   }
+
+  picture {
+    display: contents;
+  }
+}
+
+.image__note {
+  align-items: center;
+  background: var(--bg-400);
+  display: inline-flex;
+  justify-content: center;
+  height: 1.5em;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1.5em;
+}
+
+.image__asset {
+  background-color: var(--bg-400);
+  width: 100%;
+}
+
+.image__figcaption {
+  color: var(--text-600);
+  font-size: var(--fs--1);
+}
+
+.image__figcaption:not(:empty) {
+  margin-block-start: var(--space-3xs);
 }
 
 .image--inline {
@@ -22,39 +49,20 @@
   }
 }
 
-.image__asset {
-  background-color: var(--bg-400);
-  width: 100%;
-}
-
-.image__figcaption {
-  color: var(--text-600);
-  font-size: var(--fs--1);
-  margin-block-start: var(--space-3xs);
-}
-
 @include desktop {
   .image--right {
-    padding-inline-start: var(--space-m);
     float: right;
   }
 
   .image--left {
-    padding-inline-end: var(--space-m);
     float: left;
   }
 
   .image--inline {
-    display: inline-grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    max-width: 45%;
-
     .image__asset {
       margin-left: auto;
       margin-right: auto;
       object-fit: cover;
-      width: 100%;
     }
   
     .image__figcaption {
@@ -65,8 +73,20 @@
 
   .image--block {
     .image__asset {
-      object-fit: cover;
       display: block;
+      object-fit: cover;
     }
+  }
+
+  .image--inline.image--right {
+    margin-inline-start: var(--space-s);
+  }
+
+  .image--inline.image--left {
+    margin-inline-end: var(--space-s);
+  }
+
+  .image--inline {
+    max-width: 50%;
   }
 }

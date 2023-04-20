@@ -17,13 +17,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-main {
-  margin-block: var(--space-s) var(--space-m);
-
-  @include desktop {
-    margin-block: var(--space-l) var(--space-xl);
-  }
-}
 
 select {
   cursor: pointer;
@@ -92,10 +85,10 @@ h6 {
 }
 
 .container {
-  margin-inline: var(--space-m);
+  margin: var(--space-s) var(--space-m) var(--space-m) var(--space-m);
 
   @include desktop {
-    margin-inline: auto;
+    margin: var(--space-l) auto var(--space-xl) auto;
     width: min(100% - var(--space-3xl), 900px);
   }
 }

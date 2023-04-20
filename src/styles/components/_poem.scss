@@ -1,4 +1,43 @@
 .poem {
-  white-space: pre;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-m);
+
+  justify-content: space-between;
+  margin-block-end: var(--space-m);
+  margin-inline: auto;
+  width: fit-content;
+
+  @include desktop {
+    justify-content: start;
+    margin-inline: unset;
+    width: auto;
+  }
+}
+
+.poem-title {
+  display: block;
+  font-size: var(--fs-1);
+  line-height: 1.2;
+  margin-block-end: var(--space-s);
+}
+
+.poem-author {
+  flex: 1 0 100%;
+  font-style: italic;
+}
+
+.poem__text {
   line-height: 2.5rem;
+  white-space: pre;
+  width: max-content;
+}
+
+.poem__text[lang="ja"] {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+
+  p {
+    margin: 0;
+  }
 }
