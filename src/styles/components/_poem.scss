@@ -1,10 +1,8 @@
 .poem {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: var(--space-m);
-
   justify-content: space-between;
-  margin-block-end: var(--space-m);
   margin-inline: auto;
   width: fit-content;
 
@@ -13,31 +11,45 @@
     margin-inline: unset;
     width: auto;
   }
+
+  .poem-title {
+    margin: 0;
+  }
+}
+
+.poem-content {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--space-m);
+  justify-content: space-between;
 }
 
 .poem-title {
-  display: block;
+  display: inline-block;
   font-size: var(--fs-1);
   line-height: 1.2;
-  margin-block-end: var(--space-s);
-}
-
-.poem-author {
-  flex: 1 0 100%;
-  font-style: italic;
+  margin-block-end: var(--space-m);
 }
 
 .poem__text {
+  display: inline-block;
   line-height: 2.5rem;
   white-space: pre;
-  width: max-content;
-}
 
-.poem__text[lang="ja"] {
-  writing-mode: vertical-rl;
-  text-orientation: upright;
+  &[lang="ja"] {
+    font-style: normal;
+    text-orientation: upright;
+    writing-mode: vertical-rl;
+  }
 
   p {
     margin: 0;
   }
 }
+
+
+.poem-author {
+  font-style: italic;
+  width: fit-content;
+}
+

@@ -1,3 +1,10 @@
 ---
+import clsx from 'clsx';
+
+interface Props {
+  center?: boolean;
+}
+
+const { center = false } = Astro.props;
 ---
-<div class="poem"><slot /></div>
+<div class={clsx('poem', { 'poem--center': center })}><slot /></div>

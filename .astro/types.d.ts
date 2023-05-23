@@ -247,6 +247,20 @@ declare module 'astro:content' {
   collection: "poems",
   data: InferEntrySchema<"poems">
 } & { render(): Render[".mdx"] },
+"pl/spring.mdx": {
+  id: "pl/spring.mdx",
+  slug: "pl/spring",
+  body: string,
+  collection: "poems",
+  data: InferEntrySchema<"poems">
+} & { render(): Render[".mdx"] },
+"pl/sunset.mdx": {
+  id: "pl/sunset.mdx",
+  slug: "pl/sunset",
+  body: string,
+  collection: "poems",
+  data: InferEntrySchema<"poems">
+} & { render(): Render[".mdx"] },
 },
 
 	};

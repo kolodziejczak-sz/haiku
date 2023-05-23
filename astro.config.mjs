@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, sharpImageService } from 'astro/config';
 import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
@@ -10,5 +10,8 @@ export default defineConfig({
     syntaxHighlight: false,
     gfm: false,
   },
-  integrations: [mdx()]
+  integrations: [mdx()],
+  image: {
+    service: sharpImageService(),
+  }
 });

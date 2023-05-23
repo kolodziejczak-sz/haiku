@@ -4,30 +4,32 @@ import Image from '@/components/Image/Image.astro';
 import Note from '@/components/Footnotes/Note.astro';
 import { getImageMetadata } from './getImageMetadata';
 
-export interface Props {
+interface Props {
   asset: string;
   alt: string;
+  type?: 'inline' | 'block';
   direction?: 'left' | 'right';
   noteId?: string;
 }
 
-const { asset, alt, title, direction, noteId } = Astro.props;
+const { asset, alt, direction, type, noteId } = Astro.props;
 const imageMetadata = getImageMetadata(asset);
 
-const type = direction ? 'inline' : 'block';
-const isInline = type === 'inline';
-const isBlock = type === 'block';
+const isInline = Boolean(direction) || type;
+const isBlock = !isInline;
 const isLeftDirection = direction === 'left';
 const isRightDirection = direction === 'right';
+
+const targetType = type ?? direction ? 'inline' : 'block';
 
 ---
 <figure class={clsx('image', {
   'image--block': isBlock,
   'image--inline': isInline,
-  'image--right': isRightDirection || (!isLeftDirection && isInline),
+  'image--right': isRightDirection,
   'image--left': isLeftDirection,
 })}>
-  <Image class="image__asset" asset={imageMetadata} title={title} type={type} alt={alt} />
+  <Image class="image__asset" asset={imageMetadata} type={targetType} alt={alt} />
   {noteId && <Note class="image__note" id={noteId} />}
   <figcaption class="image__figcaption"><slot /></figcaption>
 </figure>

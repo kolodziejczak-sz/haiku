@@ -8,7 +8,7 @@ import { supportedLanguages } from '@/features/i18n/supportedLanguages';
 import { useTranslation } from '@/features/i18n/useTranslation';
 import Icon from '@/components/Icon.astro';
 
-export interface Props {
+interface Props {
   class?: string;
 }
 
@@ -19,7 +19,7 @@ const slug = getSlugFromContext(Astro);
 
 let missingTranslations: string[] = [];
 
-if (slug.includes('poem')) {
+if (slug.includes('poems/')) {
   const allPoems = await getCollection('poems');
   const [_, poemName] = slug.split('/');
 

@@ -2,7 +2,7 @@
 import { ImageMetadata } from 'astro'
 import { getImage } from 'astro:assets'
 
-export interface Props {
+interface Props {
   asset: ImageMetadata;
   type?: 'inline' | 'block';
   title?: string;

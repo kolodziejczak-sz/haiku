@@ -4,7 +4,7 @@ import { supportedLanguages } from '@/features/i18n/supportedLanguages';
 import { getSlugFromContext } from '@/features/router/getSlugFromContext';
 import Link from '@/components/Link.astro';
 
-export interface Props {
+interface Props {
   class?: string;
 };
 
@@ -13,7 +13,7 @@ const slug = getSlugFromContext(Astro);
 
 let hasTranslationForPoem = (_: string) => true;
 
-if (slug.includes('poem')) {
+if (slug.includes('poems/')) {
   const allPoems = await getCollection('poems');
   const [_, poemName] = slug.split('/');
 

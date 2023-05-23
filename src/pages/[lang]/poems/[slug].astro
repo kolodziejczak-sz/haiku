@@ -7,10 +7,10 @@ import Footnotes from '@/components/Footnotes/Footnotes.astro';
 import Note from '@/components/Footnotes/Note.astro';
 
 import Poem from '@/components/Poem/Poem.astro';
-import Author from '@/components/Poem/Author.astro';
 import Text from '@/components/Poem/Text.astro';
+import Content from '@/components/Poem/Content.astro';
+import Author from '@/components/Poem/Author.astro';
 import Space from '@/components/Poem/Space.astro';
-import Title from '@/components/Poem/Title.astro';
 
 export const getStaticPaths = async () => {
   const allPages = await getCollection('poems');
@@ -27,7 +27,7 @@ export const getStaticPaths = async () => {
 };
 
 const { entry } = Astro.props as { entry: CollectionEntry<'poems'> };
-const { Content } = await entry.render();
+const { Content: Output } = await entry.render();
 
 const components = {
   a: Link,
@@ -38,11 +38,11 @@ const components = {
   Note,
 
   Poem,
-  Title,
+  Content,
   Text,
   Author,
   Space,
 };
 
 ---
-<Content components={components} />
+<Output components={components} />
